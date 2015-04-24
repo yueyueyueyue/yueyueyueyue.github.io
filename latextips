@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>latex tips</title>
+  
+  
+  <link href="mystyle.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+  <h1>latex tips</h1>
+  <p>公式对齐与换行
+  <div id="code">
+begin{equation}
+begin{aligned}
+R(S_2)&= p_2cdot S_2=sum_{iin mathcal{I}^+(p_2)}B_i+beta B_{l'}\
+&leq sum_{iin mathcal{I}^+(p_2)}B_i+B_{l'}leq sum_{iin mathcal{I}^+(p_1)}B_i \
+&leq sum_{iin mathcal{I}^+(p_1)}B_i+alpha B_l=R(S_1)
+end{aligned}
+end{equation}
+</div>
+其中，\ 表示换行， & 表示对齐点
+</p>
+</body>
+
+</html>
