@@ -4,14 +4,24 @@
 <head>
   <title>latex tips</title>
   
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="//www.fuelcdn.com/fuelux/3.6.3/css/fuelux.min.css" rel="stylesheet">
   
   <link href="stylesheets/mystyle.css" rel="stylesheet" type="text/css"/>
+  
+  
+  <!-- jQuery -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="//www.fuelcdn.com/fuelux/3.6.3/js/fuelux.min.js"></script>
+
 </head>
 
-<body>
+<body class="fuelux">
   <h1>latex tips</h1>
   <p>公式对齐与换行
-  <div class="code">
+  
 begin{equation}
 begin{aligned}
 R(S_2)&= p_2cdot S_2=sum_{iin mathcal{I}^+(p_2)}B_i+beta B_{l'}\
@@ -19,7 +29,7 @@ R(S_2)&= p_2cdot S_2=sum_{iin mathcal{I}^+(p_2)}B_i+beta B_{l'}\
 &leq sum_{iin mathcal{I}^+(p_1)}B_i+alpha B_l=R(S_1)
 end{aligned}
 end{equation}
-</div>
+
 其中，\ 表示换行， & 表示对齐点
 </p>
 </body>
