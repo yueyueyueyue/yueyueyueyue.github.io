@@ -1,0 +1,629 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0063)http://www.cnblogs.com/fornever/archive/2011/11/15/2249492.html -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script async="" src="./平衡二叉树（解惑） - _Never_ - 博客园_files/analytics.js"></script>
+
+<title>平衡二叉树（解惑） - _Never_ - 博客园</title>
+<link type="text/css" rel="stylesheet" href="./平衡二叉树（解惑） - _Never_ - 博客园_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="./平衡二叉树（解惑） - _Never_ - 博客园_files/bundle-MTRusty.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/fornever/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/fornever/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/fornever/wlwmanifest.xml">
+<script type="text/javascript" src="./平衡二叉树（解惑） - _Never_ - 博客园_files/encoder.js"></script><script async="" type="text/javascript" src="./平衡二叉树（解惑） - _Never_ - 博客园_files/gpt.js"></script><script src="./平衡二叉树（解惑） - _Never_ - 博客园_files/jquery.js" type="text/javascript"></script>  
+<script type="text/javascript">var currentBlogApp = 'fornever', cb_enable_mathjax=false;</script>
+<script src="./平衡二叉树（解惑） - _Never_ - 博客园_files/blog-common.js" type="text/javascript"></script>
+<script async="" type="text/javascript" src="./平衡二叉树（解惑） - _Never_ - 博客园_files/pubads_impl_59.js"></script><script type="text/javascript" src="./平衡二叉树（解惑） - _Never_ - 博客园_files/osd.js"></script><script type="text/javascript" async="" src="./平衡二叉树（解惑） - _Never_ - 博客园_files/43820"></script></head>
+<body>
+<a name="top"></a>
+<div id="page_begin_html">
+</div><script>load_page_begin_html();</script>
+
+
+<div id="top">
+
+<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/fornever/">_Never_</a></h1>
+<p id="tagline">I walk slowly,but I will never stop.</p>
+</div>
+<div id="rightmenu">
+
+	
+<h3>My Links</h3>
+<ul>
+			<li><a id="MyLinks1_HomeLink" href="http://www.cnblogs.com/">博客园</a></li>
+			<li><a id="MyLinks1_MyHomeLink" href="http://www.cnblogs.com/fornever/">首页</a></li>
+			<li><a id="MyLinks1_ContactLink" accesskey="9" rel="nofollow" href="http://space.cnblogs.com/msg/send/_Never_">联系</a></li>
+			<li><a id="MyLinks1_Syndication" href="http://www.cnblogs.com/fornever/rss">订阅</a> <a id="MyLinks1_XMLLink" href="http://www.cnblogs.com/fornever/rss"><img src="./平衡二叉树（解惑） - _Never_ - 博客园_files/xml.gif" alt="订阅"></a>
+			</li><li><a id="MyLinks1_Admin" rel="nofollow" href="http://i.cnblogs.com/">管理</a></li>
+</ul>
+	
+<h3>Blog Stats</h3>
+	<ul>
+		<li>Posts - 49
+		</li><li>Stories - 0
+		</li><li>Comments - 42
+		</li><li>Trackbacks - 0
+	</li>
+</ul>
+	
+<h3>News</h3>
+	<ul>
+	  <li><div id="blog-news"><div id="clicki_group_1783" title="clicki"></div><div id="profile_block">昵称：<a href="http://home.cnblogs.com/u/fornever/">_Never_</a><br>园龄：<a href="http://home.cnblogs.com/u/fornever/" title="入园时间：2011-09-08">3年7个月</a><br>粉丝：<a href="http://home.cnblogs.com/u/fornever/followers/">46</a><br>关注：<a href="http://home.cnblogs.com/u/fornever/followees/">2</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="cnblogs.UserManager.FollowBlogger(&#39;37b893e5-b7d9-e011-8ee0-842b2b196315&#39;)">+加关注</a></div></div></div><script type="text/javascript">loadBlogNews();</script></li>
+	</ul>
+
+	<div id="blog-sidecolumn">
+<div class="mySearch">
+<h3 class="catListTitle">搜索</h3>
+<div id="widget_my_zzk" class="div_my_zzk"><input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk"></div>
+<div id="widget_my_google" class="div_my_zzk"><input type="text" name="google_q" id="google_q" onkeydown="return google_go_enter(event)" class="input_my_zzk">&nbsp;<input onclick="google_go()" type="button" value="谷歌搜索" class="btn_my_zzk"></div>
+</div>
+
+
+<h3 class="catListTitle">常用链接</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/fornever/p/" title="我的博客的随笔列表">我的随笔</a></li><li><a href="http://www.cnblogs.com/fornever/MyComments.html" title="我发表过的评论列表">我的评论</a></li><li><a href="http://www.cnblogs.com/fornever/OtherPosts.html" title="我评论过的随笔列表">我的参与</a></li><li><a href="http://www.cnblogs.com/fornever/RecentComments.html" title="我的博客的评论列表">最新评论</a></li><li><a href="http://www.cnblogs.com/fornever/tag/" title="我的博客的标签列表">我的标签</a></li>
+</ul>
+<div id="itemListLin_con" style="display:none;">
+
+</div>
+<h3 class="catListTitle">我的标签</h3>
+<div id="MyTag">
+<ul>
+<li><a href="http://www.cnblogs.com/fornever/tag/%E6%9C%80%E7%9F%AD%E8%B7%AF/">最短路</a>(4)</li><li><a href="http://www.cnblogs.com/fornever/tag/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/">最小生成树</a>(3)</li><li><a href="http://www.cnblogs.com/fornever/tag/%E6%9C%80%E5%B0%8F%E8%B4%B9%E7%94%A8%E6%9C%80%E5%A4%A7%E6%B5%81/">最小费用最大流</a>(2)</li><li><a href="http://www.cnblogs.com/fornever/tag/%E6%9C%80%E5%B0%8F%E8%A6%86%E7%9B%96%E7%82%B9%E6%95%B0/">最小覆盖点数</a>(2)</li><li><a href="http://www.cnblogs.com/fornever/tag/%E4%BA%8C%E5%88%86%E5%9B%BE%E7%9A%84%E6%9C%80%E5%B0%8F%E7%82%B9%E6%9D%83%E8%A6%86%E7%9B%96%E9%9B%86/">二分图的最小点权覆盖集</a>(2)</li><li><a href="http://www.cnblogs.com/fornever/tag/%E7%AE%80%E5%8D%95DP/">简单DP</a>(2)</li><li><a href="http://www.cnblogs.com/fornever/tag/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/">平衡二叉树</a>(1)</li><li><a href="http://www.cnblogs.com/fornever/tag/%E6%B1%82%E5%8F%8D%E5%9B%BE%2BDFS%E6%B1%82%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F%E5%B9%B6%E6%9F%93%E8%89%B2%2BDP/">求反图+DFS求连通分量并染色+DP</a>(1)</li><li><a href="http://www.cnblogs.com/fornever/tag/%E6%80%9D%E7%BB%B4/">思维</a>(1)</li><li><a href="http://www.cnblogs.com/fornever/tag/%E6%8E%A8%E8%A7%84%E5%BE%8B/">推规律</a>(1)</li><li><a href="http://www.cnblogs.com/fornever/tag/">更多</a></li>
+</ul>
+</div>
+		<h3>随笔分类</h3>
+		
+				<ul>
+			
+				<li><a id="CatList_LinkList_0_Link_0" href="http://www.cnblogs.com/fornever/category/529381.html">Android(3)</a> </li>
+			
+				<li><a id="CatList_LinkList_0_Link_1" href="http://www.cnblogs.com/fornever/category/364772.html">NOJ(3)</a> </li>
+			
+				<li><a id="CatList_LinkList_0_Link_2" href="http://www.cnblogs.com/fornever/category/322974.html">不知道的东东(1)</a> </li>
+			
+				<li><a id="CatList_LinkList_0_Link_3" href="http://www.cnblogs.com/fornever/category/333270.html">其他(3)</a> </li>
+			
+				<li><a id="CatList_LinkList_0_Link_4" href="http://www.cnblogs.com/fornever/category/335271.html">数据结构(3)</a> </li>
+			
+				<li><a id="CatList_LinkList_0_Link_5" href="http://www.cnblogs.com/fornever/category/322543.html">图论(31)</a> </li>
+			
+				<li><a id="CatList_LinkList_0_Link_6" href="http://www.cnblogs.com/fornever/category/329036.html">我要记录这一刻！(2)</a> </li>
+			
+				</ul>
+			
+	
+		<h3>随笔档案</h3>
+		
+				<ul>
+			
+				<li><a id="CatList_LinkList_1_Link_0" href="http://www.cnblogs.com/fornever/archive/2013/11.html">2013年11月 (2)</a> </li>
+			
+				<li><a id="CatList_LinkList_1_Link_1" href="http://www.cnblogs.com/fornever/archive/2013/10.html">2013年10月 (1)</a> </li>
+			
+				<li><a id="CatList_LinkList_1_Link_2" href="http://www.cnblogs.com/fornever/archive/2012/05.html">2012年5月 (1)</a> </li>
+			
+				<li><a id="CatList_LinkList_1_Link_3" href="http://www.cnblogs.com/fornever/archive/2012/04.html">2012年4月 (3)</a> </li>
+			
+				<li><a id="CatList_LinkList_1_Link_4" href="http://www.cnblogs.com/fornever/archive/2012/03.html">2012年3月 (14)</a> </li>
+			
+				<li><a id="CatList_LinkList_1_Link_5" href="http://www.cnblogs.com/fornever/archive/2011/12.html">2011年12月 (1)</a> </li>
+			
+				<li><a id="CatList_LinkList_1_Link_6" href="http://www.cnblogs.com/fornever/archive/2011/11.html">2011年11月 (5)</a> </li>
+			
+				<li><a id="CatList_LinkList_1_Link_7" href="http://www.cnblogs.com/fornever/archive/2011/10.html">2011年10月 (8)</a> </li>
+			
+				<li><a id="CatList_LinkList_1_Link_8" href="http://www.cnblogs.com/fornever/archive/2011/09.html">2011年9月 (14)</a> </li>
+			
+				</ul>
+			
+	<div id="recent_comments_wrap">
+<h3 class="catListTitle">最新评论</h3>
+<div class="RecentComment" id="RecentComments">
+	<div id="RecentCommentsBlock"><ul>
+    <li class="recent_comment_title"><a href="http://www.cnblogs.com/fornever/archive/2012/03/19/2405912.html#3164426">1. Re:NYOJ Number Sequence-----Problem F</a></li>
+    <li class="recent_comment_body">#includeint main(){ int f[50],a,b,n,i; while(scanf("%d%d%d",&amp;a,&amp;b,&amp;n)!=EOF) { if(a......</li>
+    <li class="recent_comment_author">--杨 强</li>
+    <li class="recent_comment_title"><a href="http://www.cnblogs.com/fornever/archive/2011/12/02/2270692.html#3068003">2. Re:红黑树</a></li>
+    <li class="recent_comment_body">楼主，S是sibling的缩写，中文解析为兄弟姐妹</li>
+    <li class="recent_comment_author">--linkua</li>
+    <li class="recent_comment_title"><a href="http://www.cnblogs.com/fornever/archive/2011/12/02/2270692.html#3055069">3. Re:红黑树</a></li>
+    <li class="recent_comment_body">感觉我删除还是没看清楚，替代点N既然也要删除，怎么图中还有？</li>
+    <li class="recent_comment_author">--ggq89</li>
+    <li class="recent_comment_title"><a href="http://www.cnblogs.com/fornever/archive/2011/12/02/2270692.html#3055026">4. Re:红黑树</a></li>
+    <li class="recent_comment_body">哦，我明白了，替代点N一定是被删除点的直接前驱或者直接后继。</li>
+    <li class="recent_comment_author">--ggq89</li>
+    <li class="recent_comment_title"><a href="http://www.cnblogs.com/fornever/archive/2011/12/02/2270692.html#3055006">5. Re:红黑树</a></li>
+    <li class="recent_comment_body">LZ，你好，我不明白：替代点N的至少有一个子节点为NULL，这是为什么？</li>
+    <li class="recent_comment_author">--ggq89</li>
+</ul>
+</div>
+</div>
+</div><div id="topview_posts_wrap">
+<h3 class="catListTitle">阅读排行榜</h3>
+<div class="RecentComment" id="TopViewPosts"> 
+	<div id="TopViewPostsBlock"><ul><li><a href="./平衡二叉树（解惑） - _Never_ - 博客园_files/平衡二叉树（解惑） - _Never_ - 博客园.html">1. 平衡二叉树（解惑）(29427)</a></li><li><a href="http://www.cnblogs.com/fornever/archive/2011/12/02/2270692.html">2. 红黑树(10213)</a></li><li><a href="http://www.cnblogs.com/fornever/archive/2011/09/17/2179448.html">3. Tarjan的求双连通分量算法(3295)</a></li><li><a href="http://www.cnblogs.com/fornever/archive/2011/09/23/2182939.html">4. 欣赏Dinic递归---我沦陷了！(1885)</a></li><li><a href="http://www.cnblogs.com/fornever/archive/2011/09/20/2182903.html">5. 最大流的非递归Dinic算法(1163)</a></li></ul></div>
+</div>
+</div><div id="topfeedback_posts_wrap">
+<h3 class="catListTitle">评论排行榜</h3>
+<div class="RecentComment" id="TopCommentsPosts">
+	<div id="TopFeedbackPostsBlock"><ul><li><a href="http://www.cnblogs.com/fornever/archive/2011/12/02/2270692.html">1. 红黑树(16)</a></li><li><a href="./平衡二叉树（解惑） - _Never_ - 博客园_files/平衡二叉树（解惑） - _Never_ - 博客园.html">2. 平衡二叉树（解惑）(14)</a></li><li><a href="http://www.cnblogs.com/fornever/archive/2012/03/01/2375203.html">3. POJ 1112 Team them up(2)</a></li><li><a href="http://www.cnblogs.com/fornever/archive/2011/09/23/2182939.html">4. 欣赏Dinic递归---我沦陷了！(2)</a></li><li><a href="http://www.cnblogs.com/fornever/archive/2011/09/20/2182903.html">5. 最大流的非递归Dinic算法(2)</a></li></ul></div>
+</div></div><div id="topdigg_posts_wrap">
+<h3 class="catListTitle">推荐排行榜</h3>
+<div class="RecentComment">
+	<div id="TopDiggPostsBlock"><ul><li><a href="./平衡二叉树（解惑） - _Never_ - 博客园_files/平衡二叉树（解惑） - _Never_ - 博客园.html">1. 平衡二叉树（解惑）(10)</a></li><li><a href="http://www.cnblogs.com/fornever/archive/2011/12/02/2270692.html">2. 红黑树(6)</a></li><li><a href="http://www.cnblogs.com/fornever/archive/2011/09/23/2182939.html">3. 欣赏Dinic递归---我沦陷了！(2)</a></li><li><a href="http://www.cnblogs.com/fornever/archive/2011/09/20/2182903.html">4. 最大流的非递归Dinic算法(1)</a></li><li><a href="http://www.cnblogs.com/fornever/archive/2011/09/17/2179448.html">5. Tarjan的求双连通分量算法(1)</a></li></ul></div>
+</div></div></div><script type="text/javascript">loadBlogSideColumn();</script>
+
+</div>
+<div id="main">
+	
+
+	<div class="post">
+		<h2>
+			<a id="cb_post_title_url" href="./平衡二叉树（解惑） - _Never_ - 博客园_files/平衡二叉树（解惑） - _Never_ - 博客园.html">平衡二叉树（解惑）</a>
+		</h2>
+		<div id="cnblogs_post_body"><p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">平衡二叉树定义(AVL)：它或者是一颗空树，或者具有以下性质的二叉树：它的左子树和右子树的深度之差的绝对值不超过1，且它的左子树和右子树都是一颗平衡二叉树。</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">平衡因子(bf)：结点的左子树的深度减去右子树的深度，那么显然-1&lt;=bf&lt;=1;</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">很显然，平衡二叉树是在二叉排序树(BST)上引入的，就是为了解决二叉排序树的不平衡性导致时间复杂度大大下降，那么AVL就保持住了(BST)的最好时间复杂度O(logn)，所以每次的插入和删除都要确保二叉树的平衡，那么怎么保持平衡呢？</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">我努力看了看数据结构上的讲解，但是看的只晕+_+！我对他的讲解很无语，他所谓的“旋转”操作讲的不明不白，看的我气的蛋疼！你说你旋转，你得说清是如何旋转？以那个结点为中心，那些或者说那个结点转了，那些结点不动。你就在哪里旋转来旋转去的，谁知道你是咋转的，你在哪慢慢转吧！哥转不过你，另找高明！于是在网上找啊找，只为想搞明白是到底怎么转的！<a href="http://hxraid.iteye.com/blog/609949">点击打开链接</a>让我对“旋转”有所领悟，表示感谢！</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">&nbsp;</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;"><span class="Apple-style-span" style="color: #ff0000; font-size: 18px;"><span class="Apple-style-span" style="font-weight: bold;">插入时：</span></span></p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;"><span class="Apple-style-span" style="font-weight: bold;">那究竟是如何“转”的呢？</span></p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">&nbsp;</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">首先必须明白一个核心操作，不让它叫“旋转”！而叫——&gt;“两个结点的变换”</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">如图：</p>
+<p><img src="./平衡二叉树（解惑） - _Never_ - 博客园_files/2011111511570656.jpg" alt=""></p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">就拿第一个来说-&gt;点100和101的变换：</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">点101占据点100的位置，点100换到了101的对面的位置，其他点的相对位置不变。</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">我们可以更直观的理解为：把101结点“上提”一下！</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">分析：101&gt;100，所以100可以作为101的左孩子；</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">也就是在二叉排序树中，两个结点这样的变换操作是可行的，是符合二叉排序树的性质。</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">不仅这个简单的图，任何复杂的二叉排序树都可以，你可以试试，也许你会说如果点101左边有孩子怎么办？别着急~，当然有办法！</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">&nbsp;</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">下边正式说这个图的四种不平衡情况（插入时）及操作：</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">首先还需要明白一个概念-&gt;最小不平衡子树的根结点：也就是当你进行插入操作时，找到该需要插入结点的位置并插入后，从该结点起向上寻找（回溯），第一个不平衡的结点即平衡因子bf变为-2或2。</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">为什么要引入这个最小不平衡根结点的概念，因为在插入时，对该子树进行保持平衡操作后，其它的结点的平衡因子不会变，也就是整棵树又恢复平衡了。为什么呢？</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">你想想不平衡点的bf一定是-2或2吧，经过平衡操作后，他会把一边子树的一个结点分给另一边的子树，也就是一边的深度分给另一边，这样就平衡了！</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">比如，插入前：左边是深度1，右边深度是0；插入后左边深度是2，右边深度是0，经过平衡后左边深度是1，右边深度是1；</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">那么你说插入前和插入后该根结点所领导的子树的深度变没？？仍是1，显然没变！那么就仍保持了这棵树的平衡了！</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">&nbsp;</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">下面即四种情况分别为：左左、右右、左右、右左，每种情况又有两个图：①、②，①是该情况的最简单的图形，②是该情况的一般的图形；</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">设x为最小不平衡子树的根结点，y为刚插入的点</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">&nbsp;</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">左左：</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">即在x的左孩子a的左孩子c上插入一个结点y（该结点也可以是c,如图①），即y可以是c，也可以是c的左孩子（如图②），也可以是c的右孩子（不在画出）</p>
+<p><img src="./平衡二叉树（解惑） - _Never_ - 博客园_files/2011111511575684.jpg" alt="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">图①就不用说了，结点x和结点a变换，则树平衡了；那么图②就是树中的一般情况了a结点有右孩子d，那要进行x和a变换，那么a的右孩子放哪啊？</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">很简单，如图放在x的左孩子上；分析：x&gt;d,d&gt;a,所以d可作为x的左孩子，且可作为a的右孩子中的孩子。下边这样的类似情况不再一一分析，自己分析分析~</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">实现：找到根结点x，与它的左孩子a进行交换即可使二叉树树再次平衡；</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">&nbsp;</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">&nbsp;</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">右右：</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">即在x的右孩子a的右孩子c上插入一个结点y（该结点也可以是c,如图①），即y可以是c，也可以是c的右孩子（如图②），也可以是c的左孩子（不在画出）</p>
+<p><img src="./平衡二叉树（解惑） - _Never_ - 博客园_files/2011111511584597.jpg" alt=""></p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">实现：找到根结点x，与它的右孩子a进行交换即可使二叉树树再次平衡；</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">&nbsp;</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">&nbsp;</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">左右：</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">即在x的左孩子a的右孩子c上插入一个结点y（该结点也可以是c,如图①），即y可以是c，也可以是c的右孩子（如图②），也可以是c的左孩子（不在画出）</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><img src="./平衡二叉树（解惑） - _Never_ - 博客园_files/2011111512091152.jpg" alt=""></p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">这个左右和下边的右左，稍微复杂了点，需要进行两次交换，才能达到平衡，注意这时y是c的右孩子，最终y作为x的左孩子；若y是c的左孩子，最终y作为a</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">的右孩子，画图分析一下~~下边类似，不再敖述。</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">&nbsp;</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">实现：找到根结点x，让x的左孩子a与x的左孩子a的右孩子c进行交换，然后再让x与x此时的左孩子c进行交换，最终达到平衡；</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">&nbsp;</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">右左：</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">即在x的右孩子a的左孩子c上插入一个结点y（该结点也可以是c,如图①），即y可以是c，也可以是c的右孩子（如图②），也可以是c的左孩子（不在画出）</p>
+<p><img src="./平衡二叉树（解惑） - _Never_ - 博客园_files/2011111512095543.jpg" alt=""></p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">&nbsp;</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">实现：找到根结点x，让x的右孩子a与x的右孩子a的左孩子c进行交换，然后再让x与x此时的右孩子c进行交换，最终达到平衡；</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">&nbsp;</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">上边的四种情况包含了所有插入时导致不平衡的情况，上面给出的仅仅是一棵大树中的最小不平衡子树，一定要想清楚，别迷了！</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">另外一定要注意这个交换操作，比如a与b交换（a在上，b在下），b一定要占据a的位置！什么意思？就是b要放在（覆盖）储存a的那块内存上，</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">再通俗点说，若a是x的左孩子，则交换后b要做x的左孩子；这就是所谓的b占据a的位置！</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">&nbsp;</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;"><span class="Apple-style-span" style="font-weight: bold;">那么如何找到最小不平衡子树的根结点x，并判断出它是属于那种情况的？</span></p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">&nbsp;</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">插入一个结点时，我们首先找到需要插入的位置，并插入；数据结构上用的是递归，不要说递归太浪费时空，你想想一个含2^31个结点的平衡二叉树的深度大约是31吧，它递归再多也不就是31层！而且递归代码短小、精悍、富含艺术之美！所以我认为对于这个平衡二叉树，用递归很合适！</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">显然插入之后就要检查是否出现不平衡的结点，那么如何检查？</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">我们知道，你插入的时候用的是递归，一条线找到要插的位置，并插入；那么谁的平衡因子的有可能变呢？</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">不难想象，只有该条线上的结点的平衡因子有可能改变！那么我们在回溯的时候不就可以找到第一个不平衡的子树的结点？！</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">可是我们如何判断该结点的平衡因子是否应该改变，显然要看它被插入结点的一边的深度是否增加；</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">如何看它被插入结点的一边的深度是否增加？</p>
+<p><img src="./平衡二叉树（解惑） - _Never_ - 博客园_files/2011111512105916.jpg" alt=""></p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">如上图，如何看x的右孩子a（即被插入结点的一边）的深度增加？我们知道在a的右孩子上插入了结点y那么a的bf是一定要减1</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">那么x结点的bf？可根据a的bf决定是否改变！</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">若a:bf=-1或1，那么a之前一定为0，表示a的深度增加了，那么x的bf可根据a是x哪一边的孩子决定+1或-1；</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">若a:bf=0，那么a之前一定为-1或1，表示a的深度每增加，那么不仅x的bf就不用变，该条线上的所有结点的bf都不用变，直接返回即可；</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">&nbsp;</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">当然了，那么找到最小不平衡子树的根结点x了，如何判断它属于哪种不平衡呢？</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">①根据上边的几种情况，我们需要知道两个方向，在回溯时可以记录一下该结点到下一个结点的方向0：左、1：右为第二个方向，传递给上一层中，那么上层中的方向就是一个方向，有了这两个方向就能确定是哪种不平衡了。</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">还就上边的图说吧~可以定义一个全局变量secdirection（第二个方向），也可在递归中定义一个局部变量，返回给上一层。在回溯到a中时，secdirection=1，到x的时候</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">x-&gt;a的方向也为1，定义firdirection=1；而这时x:bf=-2；那么就找到了最小不平衡子树的根结点x，又知道了两个方向，那么进行相应的平衡操作不就行了。</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">②其实我代码中的就是按照①写的，可是刚又想了，其实不用用个变量记录第二个方向，可以根据a的bf确定它的第二个方向，a:bf=-1说明右孩子的深度增加，y加到右孩子上；</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">a:bf=1;说明左孩子的深度增加，y加到左孩子上；</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">&nbsp;</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">好了，找到了最小不平衡子树的根结点x了，也知道了那种不平衡，调用keepbalance(...)就使树平衡了，可是某些结点的平衡因子在变换是变了~~咋办？</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">我就是一种一种情况推出来的，不知道别人怎么变的，每一种情况都有固定的几个点变了，变成了一个固定的值！谁有更好的办法，请多多指教！</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">&nbsp;</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">下边一一列出（插入操作中）变换后bf改变的结点及值：</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">左左：前a-&gt;bf=1 后&nbsp;x-&gt;bf=0,a-&gt;bf=0；右右：前a-&gt;bf=-1 后x-&gt;bf=0,a-&gt;bf=0；显然左左与右右的x与a变换后的bf都为0；</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">左右、右左中结点bf的改变要根据之前c的bf！</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">左右：若c-&gt;bf=1,则x-&gt;bf=-1,a-&gt;bf=0,c-&gt;bf=0；若c-&gt;bf=-1,则x-&gt;bf=0,a-&gt;bf=1,c-&gt;bf=0；若c-&gt;bf=0,则x-&gt;bf=0,a-&gt;bf=0,c-&gt;bf=0；</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">右左：若c-&gt;bf=1,则x-&gt;bf=0,a-&gt;bf=-1,c-&gt;bf=0；若c-&gt;bf=-1,则x-&gt;bf=1,a-&gt;bf=0,c-&gt;bf=0；若c-&gt;bf=0,则x-&gt;bf=0,a-&gt;bf=0,c-&gt;bf=0；</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">可以发现，当左右、右左的c-&gt;bf相同时x与a的bf刚好取相反的值。</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">&nbsp;</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">好了，到现在插入一个结点的二叉树终于平衡了，相应的平衡因子也修改了！插入算是完成了！！</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">&nbsp;</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;"><span class="Apple-style-span" style="font-weight: bold;"><span class="Apple-style-span" style="color: #ff0000; font-size: 18px;">删除时：</span></span></p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">删除类似插入的操作，蛋又不同，删除会有一些特殊情况需要特殊处理，当然核心操作“保持平衡”是不变的！</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">&nbsp;</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">删除时少一个结点，也就是该结点所在的子树深度可能会减小，而插入时多一个结点，该结点所在的子树深度可能会增加，</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">所以递归删除一个结点时，回溯时找到最小不平衡子树的根结点时，要向相反的方向去找属于哪种情况；</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">如图：</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">y为要删除的结点；</p>
+<p><img src="./平衡二叉树（解惑） - _Never_ - 博客园_files/2011111512112830.jpg" alt=""></p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">图①：y结点删除后，回溯到x结点x:bf=-1变为x:bf=-2；则需从相反方向即从x的右孩子的方向向下检查属于哪种情况，显然第一个方向为1：右；</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">第二个方向看a:bf的值——若为1时，那就相当于插入时‘右左’的情况；若为-1时，那就相当于插入时‘左左’的情况；可现在a:bf既不是1也不是-1</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">而是0，这就是删除的特殊情况了！我们不妨试试对他进行类似于插入时的‘右右’操作，看怎么样~&nbsp;&nbsp; &nbsp;如上图，经过变换后该子树平衡了！但是因子的</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">修改就跟插入时的‘右右’不一样了！此时变为：x:bf=-1,a:bf=1；所以我们不妨就把a:bf=0也归纳为删除的‘右右’或‘左左’（如图②，不再敖述）操作；</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">那么删除时因子的改变需在插入时因子的改变中添加上：</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">左左：前a:bf=0 后x:bf=1,a:bf=-1； 右右：前a:bf=0 后x:bf=-1,a:bf=1；其他不变！</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">&nbsp;</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">插入时结束结点平衡因子的修改，直接返回（也就是该树已经平衡了）：</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">回溯时发现儿子结点的平衡因子为0（当发现不平衡结点，并进行平衡操作后，平衡后根结点的bf一定为0，也结束了）</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">但是删除时结束结点平衡因子的修改，直接返回，就与插入时不一样了：回溯时发现儿子结点的平衡因子为-1或1！</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">再删除操作中，平衡一个子树后，该子树的深度不一定不变，而只有上边那种特殊情况该子树的深度不变，其他都会变！</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">可以想象，其实是很简单的道理：除了特殊情况其他都与插入的情况一模一样，说白了就是把深度大的子树（根结点的其中一个）向深度小子树贡献一个深度，</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">那么这样一来，该子树（对于根结点所领导的树）的深度是不是比原来的小1了？！所以要继续向上一个一个进行检索，直到根结点为止！</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">&nbsp;</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">好了，到这里删除也算是说完了，可以贴代码了吧~</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">&nbsp;</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">平衡二叉树的C实现：</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show(&#39;d1b7df51-e120-4aff-9b70-fb1f6a5ad62d&#39;)"><img id="code_img_closed_d1b7df51-e120-4aff-9b70-fb1f6a5ad62d" class="code_img_closed" src="./平衡二叉树（解惑） - _Never_ - 博客园_files/ContractedBlock.gif" alt=""><img id="code_img_opened_d1b7df51-e120-4aff-9b70-fb1f6a5ad62d" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide(&#39;d1b7df51-e120-4aff-9b70-fb1f6a5ad62d&#39;,event)" src="./平衡二叉树（解惑） - _Never_ - 博客园_files/ExpandedBlockStart.gif" alt=""><span class="cnblogs_code_collapse">View Code </span>
+<div id="cnblogs_code_open_d1b7df51-e120-4aff-9b70-fb1f6a5ad62d" class="cnblogs_code_hide">
+<pre><span style="color: #008080;">  1</span> #include &lt;stdio.h&gt;<br><span style="color: #008080;">  2</span> #include &lt;stdlib.h&gt;<br><span style="color: #008080;">  3</span> #include &lt;<span style="color: #0000ff;">string</span>.h&gt;<br><span style="color: #008080;">  4</span> <br><span style="color: #008080;">  5</span> typedef <span style="color: #0000ff;">int</span> Elemtype;<br><span style="color: #008080;">  6</span> <br><span style="color: #008080;">  7</span> typedef <span style="color: #0000ff;">struct</span> Balanced_Binary_Tree<br><span style="color: #008080;">  8</span> {<br><span style="color: #008080;">  9</span>     Elemtype e;<br><span style="color: #008080;"> 10</span>     <span style="color: #0000ff;">int</span> bf;<br><span style="color: #008080;"> 11</span>     <span style="color: #0000ff;">struct</span> Balanced_Binary_Tree *child[<span style="color: #800080;">2</span>];<br><span style="color: #008080;"> 12</span> }*AVL;<br><span style="color: #008080;"> 13</span> <br><span style="color: #008080;"> 14</span> <span style="color: #808080;">///</span><span style="color: #008000;">------------简单的位操作-------------------</span><span style="color: #808080;"><br></span><span style="color: #008080;"> 15</span> <span style="color: #0000ff;">void</span> setbit(<span style="color: #0000ff;">char</span> *i,<span style="color: #0000ff;">char</span> val,<span style="color: #0000ff;">char</span> pos)<br><span style="color: #008080;"> 16</span> {<br><span style="color: #008080;"> 17</span>     <span style="color: #0000ff;">if</span>(pos==<span style="color: #800080;">1</span>)<br><span style="color: #008080;"> 18</span>         (*i)=(*i)|<span style="color: #800080;">1</span>;<br><span style="color: #008080;"> 19</span>     <span style="color: #0000ff;">else</span><br><span style="color: #008080;"> 20</span>     {<br><span style="color: #008080;"> 21</span>         <span style="color: #0000ff;">if</span>(val==<span style="color: #800080;">1</span>)    (*i)=(*i)|<span style="color: #800080;">2</span>;<br><span style="color: #008080;"> 22</span>         <span style="color: #0000ff;">else</span>    (*i)=(*i)&amp;<span style="color: #800080;">1</span>;<br><span style="color: #008080;"> 23</span>     }<br><span style="color: #008080;"> 24</span> }<br><span style="color: #008080;"> 25</span> <span style="color: #0000ff;">char</span> getbit(<span style="color: #0000ff;">char</span> i,<span style="color: #0000ff;">char</span> pos)<br><span style="color: #008080;"> 26</span> {<br><span style="color: #008080;"> 27</span>     <span style="color: #808080;">///</span><span style="color: #008000;">调试时，发现这里能返回2</span><span style="color: #808080;">///<br></span><span style="color: #008080;"> 28</span> <span style="color: #008000;">//</span><span style="color: #008000;">    return (i&amp;pos); 出错的地方</span><span style="color: #008000;"><br></span><span style="color: #008080;"> 29</span>     <span style="color: #0000ff;">return</span> (i&amp;pos)&amp;&amp;<span style="color: #800080;">1</span>;<br><span style="color: #008080;"> 30</span>     <span style="color: #808080;">///////////////////////////</span><span style="color: #008000;">//</span><span style="color: #808080;"><br></span><span style="color: #008080;"> 31</span> }<br><span style="color: #008080;"> 32</span> <span style="color: #808080;">///</span><span style="color: #008000;">--------------------------------------------<br></span><span style="color: #008080;"> 33</span> <span style="color: #008000;"><br></span><span style="color: #008080;"> 34</span> <span style="color: #808080;">///</span><span style="color: #008000;">-----------生成一个结点---------------------</span><span style="color: #808080;"><br></span><span style="color: #008080;"> 35</span> AVL createnode(Elemtype e)<br><span style="color: #008080;"> 36</span> {<br><span style="color: #008080;"> 37</span>     AVL node=NULL;<br><span style="color: #008080;"> 38</span> <br><span style="color: #008080;"> 39</span>     node=(AVL)malloc(<span style="color: #0000ff;">sizeof</span>(<span style="color: #0000ff;">struct</span> Balanced_Binary_Tree));<br><span style="color: #008080;"> 40</span>     node-&gt;e=e;    node-&gt;bf=<span style="color: #800080;">0</span>;<br><span style="color: #008080;"> 41</span>     node-&gt;child[<span style="color: #800080;">0</span>]=node-&gt;child[<span style="color: #800080;">1</span>]=NULL;<br><span style="color: #008080;"> 42</span>     <br><span style="color: #008080;"> 43</span>     <span style="color: #0000ff;">return</span> node;<br><span style="color: #008080;"> 44</span> }<br><span style="color: #008080;"> 45</span> <span style="color: #808080;">///</span><span style="color: #008000;">---------------------------------------------<br></span><span style="color: #008080;"> 46</span> <span style="color: #008000;"><br></span><span style="color: #008080;"> 47</span> <span style="color: #808080;">///</span><span style="color: #008000;">★★★★★★★★AVL的核心操作★★★★★★★★★★★★<br></span><span style="color: #008080;"> 48</span> <span style="color: #808080;">///</span><span style="color: #008000;">★★★★★★★★★保持平衡★★★★★★★★★★★★★★</span><span style="color: #808080;"><br></span><span style="color: #008080;"> 49</span> <br><span style="color: #008080;"> 50</span> <span style="color: #008000;">//</span><span style="color: #008000;">改变因子函数</span><span style="color: #008000;"><br></span><span style="color: #008080;"> 51</span> <span style="color: #0000ff;">void</span> setfactor(AVL f,<span style="color: #0000ff;">int</span> button)<br><span style="color: #008080;"> 52</span> {<br><span style="color: #008080;"> 53</span>     <span style="color: #0000ff;">char</span> fir=button/<span style="color: #800080;">10</span>,sec=button%<span style="color: #800080;">10</span>;<br><span style="color: #008080;"> 54</span>     AVL s=f-&gt;child[fir],ss=s-&gt;child[sec];<br><span style="color: #008080;"> 55</span>     <span style="color: #0000ff;">char</span> choice=ss-&gt;bf;<br><span style="color: #008080;"> 56</span>     <span style="color: #0000ff;">int</span> a=<span style="color: #800080;">1</span>,b=<span style="color: #800080;">0</span>;<br><span style="color: #008080;"> 57</span> <br><span style="color: #008080;"> 58</span>     <span style="color: #808080;">/////////</span><span style="color: #008000;">/调试时发现，删除时的特殊情况</span><span style="color: #808080;">////////////</span><span style="color: #008000;">/<br></span><span style="color: #008080;"> 59</span> <span style="color: #808080;">///</span><span style="color: #008000;">//插入时，不会有这种情况，若button=0,则s-&gt;bf=1//<br></span><span style="color: #008080;"> 60</span> <span style="color: #808080;">///</span><span style="color: #008000;">//若button=11，则s-&gt;bf=-1；然而删除时，却会出现/<br></span><span style="color: #008080;"> 61</span> <span style="color: #808080;">///</span><span style="color: #008000;">//button=0或者button=11时 s-&gt;bf=0!!!!!!!</span><span style="color: #808080;">//////</span><span style="color: #008000;">//<br></span><span style="color: #008080;"> 62</span> <span style="color: #808080;">///</span><span style="color: #008000;">//那么这种特殊情况，平衡后所得的因子就跟一般的//<br></span><span style="color: #008080;"> 63</span> <span style="color: #808080;">///</span><span style="color: #008000;">//不一样了!!!如下</span><span style="color: #808080;">//////////////////////////////</span><span style="color: #008000;">/</span><span style="color: #808080;"><br></span><span style="color: #008080;"> 64</span>     <span style="color: #0000ff;">if</span>(button==<span style="color: #800080;">0</span> &amp;&amp; s-&gt;bf==<span style="color: #800080;">0</span>)    f-&gt;bf=<span style="color: #800080;">1</span>,s-&gt;bf=-<span style="color: #800080;">1</span>;<br><span style="color: #008080;"> 65</span>     <span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span>(button==<span style="color: #800080;">11</span> &amp;&amp; s-&gt;bf==<span style="color: #800080;">0</span>)    f-&gt;bf=-<span style="color: #800080;">1</span>,s-&gt;bf=<span style="color: #800080;">1</span>;<br><span style="color: #008080;"> 66</span>     <span style="color: #808080;">///////////////////////////////////////////////////<br></span><span style="color: #008080;"> 67</span>     <span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span>(button==<span style="color: #800080;">0</span> || button==<span style="color: #800080;">11</span>)<br><span style="color: #008080;"> 68</span>     {<br><span style="color: #008080;"> 69</span>         f-&gt;bf=<span style="color: #800080;">0</span>;<br><span style="color: #008080;"> 70</span>         s-&gt;bf=<span style="color: #800080;">0</span>;<br><span style="color: #008080;"> 71</span>     }<br><span style="color: #008080;"> 72</span>     <span style="color: #0000ff;">else</span><br><span style="color: #008080;"> 73</span>     {<br><span style="color: #008080;"> 74</span>         <span style="color: #808080;">///</span><span style="color: #008000;">//写博客时，发现这里有问题</span><span style="color: #808080;">//////////////////</span><span style="color: #008000;">/</span><span style="color: #808080;"><br></span><span style="color: #008080;"> 75</span>     <span style="color: #008000;">//</span><span style="color: #008000;">    if(button==1)    choice=-choice;</span><span style="color: #008000;"><br></span><span style="color: #008080;"> 76</span>         <span style="color: #808080;">///</span><span style="color: #008000;">//但是为什么我测试的时候怎么都对?!</span><span style="color: #808080;">/////////</span><span style="color: #008000;">//<br></span><span style="color: #008080;"> 77</span> <span style="color: #808080;">///</span><span style="color: #008000;">//经再次测试，上边确实错了!!!</span><span style="color: #808080;">///////////////</span><span style="color: #008000;">/<br></span><span style="color: #008080;"> 78</span> <span style="color: #808080;">///</span><span style="color: #008000;">//改为下边应该就对了吧</span><span style="color: #808080;">/////////////////////</span><span style="color: #008000;">//</span><span style="color: #808080;"><br></span><span style="color: #008080;"> 79</span>         <span style="color: #0000ff;">if</span>(button==<span style="color: #800080;">1</span>)    {a^=b,b^=a,a^=b;}<br><span style="color: #008080;"> 80</span>         <span style="color: #808080;">////////////////////////////////////////////////<br></span><span style="color: #008080;"> 81</span> <br><span style="color: #008080;"> 82</span>         <span style="color: #0000ff;">if</span>(choice==-<span style="color: #800080;">1</span>)    f-&gt;bf=a,s-&gt;bf=b;<br><span style="color: #008080;"> 83</span>         <span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span>(choice==<span style="color: #800080;">0</span>)    f-&gt;bf=s-&gt;bf=<span style="color: #800080;">0</span>;<br><span style="color: #008080;"> 84</span>         <span style="color: #0000ff;">else</span>    f-&gt;bf=-b,s-&gt;bf=-a;<br><span style="color: #008080;"> 85</span>         <br><span style="color: #008080;"> 86</span>         ss-&gt;bf=<span style="color: #800080;">0</span>;<br><span style="color: #008080;"> 87</span>     }<br><span style="color: #008080;"> 88</span> }<br><span style="color: #008080;"> 89</span> <span style="color: #008000;">//</span><span style="color: #008000;">两节点变换函数</span><span style="color: #008000;"><br></span><span style="color: #008080;"> 90</span> <span style="color: #0000ff;">void</span> conversion(AVL *T,<span style="color: #0000ff;">char</span> direction)<br><span style="color: #008080;"> 91</span> {<br><span style="color: #008080;"> 92</span>     AVL f=*T,s=f-&gt;child[direction];<br><span style="color: #008080;"> 93</span> <br><span style="color: #008080;"> 94</span>     f-&gt;child[direction]=s-&gt;child[!direction];<br><span style="color: #008080;"> 95</span>     s-&gt;child[!direction]=f;<br><span style="color: #008080;"> 96</span>     *T=s;<br><span style="color: #008080;"> 97</span> }<br><span style="color: #008080;"> 98</span> <span style="color: #008000;">//</span><span style="color: #008000;">保持平衡函数</span><span style="color: #008000;"><br></span><span style="color: #008080;"> 99</span> <span style="color: #0000ff;">void</span> keepbalance(AVL *T,<span style="color: #0000ff;">char</span> fir,<span style="color: #0000ff;">char</span> sec)<br><span style="color: #008080;">100</span> {<br><span style="color: #008080;">101</span>     AVL *s=&amp;((*T)-&gt;child[fir]);<br><span style="color: #008080;">102</span>     <span style="color: #0000ff;">int</span> button=fir*<span style="color: #800080;">10</span>+sec;<br><span style="color: #008080;">103</span> <br><span style="color: #008080;">104</span>     <span style="color: #0000ff;">if</span>(button==<span style="color: #800080;">0</span> || button==<span style="color: #800080;">11</span>)<br><span style="color: #008080;">105</span>     {<br><span style="color: #008080;">106</span>         setfactor((*T),button);<br><span style="color: #008080;">107</span>         conversion(T,fir);<br><span style="color: #008080;">108</span>     }<br><span style="color: #008080;">109</span>     <span style="color: #0000ff;">else</span><br><span style="color: #008080;">110</span>     {<br><span style="color: #008080;">111</span>         setfactor((*T),button);<br><span style="color: #008080;">112</span>         conversion(s,sec);<br><span style="color: #008080;">113</span>         conversion(T,fir);<br><span style="color: #008080;">114</span>     }<br><span style="color: #008080;">115</span> }<br><span style="color: #008080;">116</span> <span style="color: #808080;">///</span><span style="color: #008000;">★★★★★★★★★★★★★★★★★★★★★★★★★★<br></span><span style="color: #008080;">117</span> <span style="color: #008000;"><br></span><span style="color: #008080;">118</span> <span style="color: #808080;">///</span><span style="color: #008000;">------------插入时的选向操作-------------------</span><span style="color: #808080;"><br></span><span style="color: #008080;">119</span> <span style="color: #0000ff;">void</span> selectforInsert(AVL *T,<span style="color: #0000ff;">char</span> *info,<span style="color: #0000ff;">int</span> direction)<br><span style="color: #008080;">120</span> {<br><span style="color: #008080;">121</span>     AVL cur=*T;<br><span style="color: #008080;">122</span>     <span style="color: #0000ff;">char</span> firdirection,secdirection;<br><span style="color: #008080;">123</span> <br><span style="color: #008080;">124</span>     <span style="color: #0000ff;">if</span>(direction==<span style="color: #800080;">0</span>)    (cur-&gt;bf)++;<br><span style="color: #008080;">125</span>     <span style="color: #0000ff;">else</span>    (cur-&gt;bf)--;<br><span style="color: #008080;">126</span> <br><span style="color: #008080;">127</span>     <span style="color: #0000ff;">if</span>(cur-&gt;bf==<span style="color: #800080;">0</span>)    setbit(info,<span style="color: #800080;">1</span>,<span style="color: #800080;">1</span>);<br><span style="color: #008080;">128</span>     <span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span>(cur-&gt;bf==-<span style="color: #800080;">1</span> || cur-&gt;bf==<span style="color: #800080;">1</span>)    setbit(info,direction,<span style="color: #800080;">2</span>);<br><span style="color: #008080;">129</span>     <span style="color: #0000ff;">else</span><br><span style="color: #008080;">130</span>     {        <br><span style="color: #008080;">131</span>         firdirection=direction;<br><span style="color: #008080;">132</span>         secdirection=getbit(*info,<span style="color: #800080;">2</span>);<br><span style="color: #008080;">133</span>         keepbalance(T,firdirection,secdirection);<br><span style="color: #008080;">134</span>         setbit(info,<span style="color: #800080;">1</span>,<span style="color: #800080;">1</span>);<br><span style="color: #008080;">135</span>     }<br><span style="color: #008080;">136</span> }<br><span style="color: #008080;">137</span> <span style="color: #008000;">//</span><span style="color: #008000;">----------------------------------------------<br></span><span style="color: #008080;">138</span> <span style="color: #008000;"><br></span><span style="color: #008080;">139</span> <span style="color: #008000;">//</span><span style="color: #008000;">*************插入操作************************</span><span style="color: #008000;">//<br></span><span style="color: #008080;">140</span> <span style="color: #0000ff;">char</span> InsertAVL(AVL *T,Elemtype e)<br><span style="color: #008080;">141</span> {                                <span style="color: #008000;">//</span><span style="color: #008000;">可用于查询</span><span style="color: #008000;"><br></span><span style="color: #008080;">142</span>     <span style="color: #0000ff;">char</span> info;<br><span style="color: #008080;">143</span>     <br><span style="color: #008080;">144</span>     <span style="color: #0000ff;">if</span>(!(*T))<br><span style="color: #008080;">145</span>     {<br><span style="color: #008080;">146</span>         (*T)=createnode(e);<br><span style="color: #008080;">147</span>         <span style="color: #0000ff;">return</span> <span style="color: #800080;">0</span>;<br><span style="color: #008080;">148</span>     }<br><span style="color: #008080;">149</span>     <span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span>((*T)-&gt;e==e)        <span style="color: #0000ff;">return</span> -<span style="color: #800080;">1</span>;<br><span style="color: #008080;">150</span>     <span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span>((*T)-&gt;e&gt;e)<span style="color: #008000;">//</span><span style="color: #008000;">左</span><span style="color: #008000;"><br></span><span style="color: #008080;">151</span>     {<br><span style="color: #008080;">152</span>         info=InsertAVL(&amp;((*T)-&gt;child[<span style="color: #800080;">0</span>]),e);<br><span style="color: #008080;">153</span> <br><span style="color: #008080;">154</span>         <span style="color: #0000ff;">if</span>(getbit(info,<span style="color: #800080;">1</span>))    <span style="color: #0000ff;">return</span> info;<br><span style="color: #008080;">155</span>         <br><span style="color: #008080;">156</span>         selectforInsert(T,&amp;info,<span style="color: #800080;">0</span>);<br><span style="color: #008080;">157</span>     }<br><span style="color: #008080;">158</span>     <span style="color: #0000ff;">else</span>              <span style="color: #008000;">//</span><span style="color: #008000;">右</span><span style="color: #008000;"><br></span><span style="color: #008080;">159</span>     {<br><span style="color: #008080;">160</span>         info=InsertAVL(&amp;((*T)-&gt;child[<span style="color: #800080;">1</span>]),e);<br><span style="color: #008080;">161</span> <br><span style="color: #008080;">162</span>         <span style="color: #0000ff;">if</span>(getbit(info,<span style="color: #800080;">1</span>))    <span style="color: #0000ff;">return</span> info;<br><span style="color: #008080;">163</span> <br><span style="color: #008080;">164</span>         selectforInsert(T,&amp;info,<span style="color: #800080;">1</span>);<br><span style="color: #008080;">165</span>     }<br><span style="color: #008080;">166</span>     <span style="color: #0000ff;">return</span> info;<br><span style="color: #008080;">167</span> }<br><span style="color: #008080;">168</span> <span style="color: #008000;">//</span><span style="color: #008000;">*********************************************</span><span style="color: #008000;">//</span><span style="color: #008000;"><br></span><span style="color: #008080;">169</span> <span style="color: #008000;"><br></span><span style="color: #008080;">170</span> <span style="color: #008000;">//</span><span style="color: #008000;">-------------删除时的选向操作--------------------</span><span style="color: #008000;"><br></span><span style="color: #008080;">171</span> <span style="color: #0000ff;">void</span> selectforDelete(AVL *T,<span style="color: #0000ff;">char</span> *info,<span style="color: #0000ff;">char</span> direction)<br><span style="color: #008080;">172</span> {<br><span style="color: #008080;">173</span>     AVL cur=(*T);<br><span style="color: #008080;">174</span>     <span style="color: #0000ff;">char</span> firdirection,secdirection;<br><span style="color: #008080;">175</span> <br><span style="color: #008080;">176</span>     <span style="color: #0000ff;">if</span>(direction==<span style="color: #800080;">0</span>)    (cur-&gt;bf)--;<br><span style="color: #008080;">177</span>     <span style="color: #0000ff;">else</span>    (cur-&gt;bf)++;<br><span style="color: #008080;">178</span>     <br><span style="color: #008080;">179</span>     <span style="color: #0000ff;">if</span>(cur-&gt;bf==<span style="color: #800080;">0</span>)    *info=<span style="color: #800080;">0</span>;<br><span style="color: #008080;">180</span>     <span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span>(cur-&gt;bf==-<span style="color: #800080;">1</span> || cur-&gt;bf==<span style="color: #800080;">1</span>)    *info=<span style="color: #800080;">1</span>;<br><span style="color: #008080;">181</span>     <span style="color: #0000ff;">else</span><br><span style="color: #008080;">182</span>     {<br><span style="color: #008080;">183</span>         firdirection=!direction;<br><span style="color: #008080;">184</span>         <span style="color: #808080;">///</span><span style="color: #008000;">调试时，发现这里少写了一个等号</span><span style="color: #808080;">//////////////////</span><span style="color: #008000;">//</span><span style="color: #808080;"><br></span><span style="color: #008080;">185</span> <span style="color: #008000;">//</span><span style="color: #008000;">        if(cur-&gt;child[firdirection]-&gt;bf=1)    secdirection=0;草，真帅气!原来1==a这样写确实有必要!</span><span style="color: #008000;"><br></span><span style="color: #008080;">186</span>         <span style="color: #0000ff;">if</span>(<span style="color: #800080;">1</span>==cur-&gt;child[firdirection]-&gt;bf)    secdirection=<span style="color: #800080;">0</span>;<br><span style="color: #008080;">187</span>         <span style="color: #808080;">///////////////////////////////////////////////////</span><span style="color: #008000;">//</span><span style="color: #808080;"><br></span><span style="color: #008080;">188</span>         <span style="color: #0000ff;">else</span>    secdirection=<span style="color: #800080;">1</span>;<br><span style="color: #008080;">189</span>         keepbalance(T,firdirection,secdirection);<br><span style="color: #008080;">190</span> <br><span style="color: #008080;">191</span>         <span style="color: #808080;">///////////////////////////////////////////////////////////////////////////////////////</span><span style="color: #008000;">//<br></span><span style="color: #008080;">192</span> <span style="color: #808080;">///</span><span style="color: #008000;">调试时，发现经过子树平衡操作后，*info不一定都是0，就是那个特殊情况，在setfactor中</span><span style="color: #808080;">///</span><span style="color: #008000;">//<br></span><span style="color: #008080;">193</span> <span style="color: #808080;">///</span><span style="color: #008000;">的那种特殊情况时，这里*info应改为1! 所以代码改如下：</span><span style="color: #808080;">/////////////////////////////////</span><span style="color: #008000;">/<br></span><span style="color: #008080;">194</span> <span style="color: #808080;">///////////////////////////////////////////////////////////////////////////////////////</span><span style="color: #008000;">//</span><span style="color: #808080;"><br></span><span style="color: #008080;">195</span>     <span style="color: #008000;">//</span><span style="color: #008000;">    *info=1; 写代码时：这跟插入可不一样啊...该子树平衡了，它父节点的因子比变!<br></span><span style="color: #008080;">196</span> <span style="color: #008000;">//</span><span style="color: #008000;">    *info=0;</span><span style="color: #008000;">//</span><span style="color: #008000;">因此，这还没完还要是0!! ............啊……这里不一定是0! <br></span><span style="color: #008080;">197</span> <span style="color: #008000;">//</span><span style="color: #008000;">//</span><span style="color: #008000;">还是那个特殊情况搞的鬼!</span><span style="color: #008000;">//<br></span><span style="color: #008080;">198</span>         <span style="color: #0000ff;">if</span>(cur-&gt;bf==<span style="color: #800080;">0</span>)    *info=<span style="color: #800080;">0</span>;<br><span style="color: #008080;">199</span>         <span style="color: #0000ff;">else</span>    *info=<span style="color: #800080;">1</span>;<br><span style="color: #008080;">200</span>         <span style="color: #808080;">///////////////////////////////////////////////////////////////////////////////////////</span><span style="color: #008000;">//</span><span style="color: #808080;"><br></span><span style="color: #008080;">201</span>     }<br><span style="color: #008080;">202</span> }<br><span style="color: #008080;">203</span> <span style="color: #008000;">//</span><span style="color: #008000;">------------------------------------------------<br></span><span style="color: #008080;">204</span> <span style="color: #008000;"><br></span><span style="color: #008080;">205</span> <span style="color: #008000;">//</span><span style="color: #008000;">-------------变向递归--辅助删点-----------------</span><span style="color: #008000;"><br></span><span style="color: #008080;">206</span> <span style="color: #0000ff;">char</span> find(AVL *gogal,AVL *p)<br><span style="color: #008080;">207</span> {<br><span style="color: #008080;">208</span>     <span style="color: #0000ff;">char</span> info;<br><span style="color: #008080;">209</span>     AVL tp=NULL;<br><span style="color: #008080;">210</span>     <br><span style="color: #008080;">211</span>     <span style="color: #0000ff;">if</span>(NULL!=(*p)-&gt;child[<span style="color: #800080;">0</span>])<br><span style="color: #008080;">212</span>     {<br><span style="color: #008080;">213</span>         info=find(gogal,&amp;((*p)-&gt;child[<span style="color: #800080;">0</span>]));<br><span style="color: #008080;">214</span>         <span style="color: #0000ff;">if</span>(info!=<span style="color: #800080;">0</span>)    <span style="color: #0000ff;">return</span> info;<br><span style="color: #008080;">215</span>         selectforDelete(p,&amp;info,<span style="color: #800080;">0</span>);<br><span style="color: #008080;">216</span>     }<br><span style="color: #008080;">217</span>     <span style="color: #0000ff;">else</span><br><span style="color: #008080;">218</span>     {<br><span style="color: #008080;">219</span>         (*gogal)-&gt;e=(*p)-&gt;e;<br><span style="color: #008080;">220</span>         tp=(*p)-&gt;child[<span style="color: #800080;">1</span>];<br><span style="color: #008080;">221</span>         free((*p));<br><span style="color: #008080;">222</span>         *p=tp;<br><span style="color: #008080;">223</span>         info=<span style="color: #800080;">0</span>;<br><span style="color: #008080;">224</span>     }<br><span style="color: #008080;">225</span>     <span style="color: #0000ff;">return</span> info;<br><span style="color: #008080;">226</span> }<br><span style="color: #008080;">227</span> <span style="color: #008000;">//</span><span style="color: #008000;">------------------------------------------------<br></span><span style="color: #008080;">228</span> <span style="color: #008000;"><br></span><span style="color: #008080;">229</span> <span style="color: #008000;">//</span><span style="color: #008000;">**************删除操作*************************</span><span style="color: #008000;">//<br></span><span style="color: #008080;">230</span> <span style="color: #0000ff;">char</span> DeleteAVL(AVL *T,Elemtype e)<br><span style="color: #008080;">231</span> {<br><span style="color: #008080;">232</span>     <span style="color: #0000ff;">char</span> info;<br><span style="color: #008080;">233</span>     AVL tp=NULL;<br><span style="color: #008080;">234</span> <br><span style="color: #008080;">235</span>     <span style="color: #0000ff;">if</span>(!(*T))    <span style="color: #0000ff;">return</span> -<span style="color: #800080;">1</span>;//原<span style="color: #0000ff;">if</span>(!T)&nbsp;&nbsp;&nbsp; <span style="color: #0000ff;">return</span> -<span style="color: #800080;">1</span>;于2011年11月29日8:59:15修改<br><span style="color: #008080;">236</span>     <span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span>((*T)-&gt;e==e)<br><span style="color: #008080;">237</span>     {<br><span style="color: #008080;">238</span>         <span style="color: #0000ff;">if</span>(NULL!=(*T)-&gt;child[<span style="color: #800080;">1</span>])<br><span style="color: #008080;">239</span>         {<br><span style="color: #008080;">240</span>             info=find(T,&amp;((*T)-&gt;child[<span style="color: #800080;">1</span>]));<br><span style="color: #008080;">241</span>             <span style="color: #0000ff;">if</span>(info!=<span style="color: #800080;">0</span>)    <span style="color: #0000ff;">return</span> info;<br><span style="color: #008080;">242</span>             selectforDelete(T,&amp;info,<span style="color: #800080;">1</span>);<br><span style="color: #008080;">243</span>         }<br><span style="color: #008080;">244</span>         <span style="color: #0000ff;">else</span><br><span style="color: #008080;">245</span>         {<br><span style="color: #008080;">246</span>             <span style="color: #808080;">////////////</span><span style="color: #008000;">//调试时，发现这样写不对!!!</span><span style="color: #808080;">///////////////////////////////////////<br></span><span style="color: #008080;">247</span>         <span style="color: #008000;">//</span><span style="color: #008000;">    (*T)=(p=(*T)-&gt;child[0])-(free((*T)),0);</span><span style="color: #008000;">//</span><span style="color: #008000;">Just save a variable! 这里出问题<br></span><span style="color: #008080;">248</span> <span style="color: #008000;">//</span><span style="color: #008000;">    (*T)=p-(free((*T)),0); 可以<br></span><span style="color: #008080;">249</span> <span style="color: #008000;">//</span><span style="color: #008000;">    (*T)=(p=((*T)-&gt;child[0]))+(free((*T)),0); 不可以</span><span style="color: #008000;"><br></span><span style="color: #008080;">250</span>             tp=((*T)-&gt;child[<span style="color: #800080;">0</span>]);<br><span style="color: #008080;">251</span>             free((*T));<br><span style="color: #008080;">252</span>             *T=tp;<br><span style="color: #008080;">253</span>             <span style="color: #008000;">//</span><span style="color: #008000;">调试时，发现这里漏了给info赋值</span><span style="color: #008000;"><br></span><span style="color: #008080;">254</span>             info=<span style="color: #800080;">0</span>;<br><span style="color: #008080;">255</span>             <span style="color: #808080;">//////////////////////////////////////////////////////////////////////////////</span><span style="color: #008000;">/</span><span style="color: #808080;"><br></span><span style="color: #008080;">256</span>         }<br><span style="color: #008080;">257</span>     }<br><span style="color: #008080;">258</span>     <span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span>((*T)-&gt;e&gt;e)<br><span style="color: #008080;">259</span>     {<br><span style="color: #008080;">260</span>         info=DeleteAVL(&amp;(*T)-&gt;child[<span style="color: #800080;">0</span>],e);<br><span style="color: #008080;">261</span>         <span style="color: #0000ff;">if</span>(info!=<span style="color: #800080;">0</span>)    <span style="color: #0000ff;">return</span> info;<br><span style="color: #008080;">262</span>         selectforDelete(T,&amp;info,<span style="color: #800080;">0</span>);<br><span style="color: #008080;">263</span>     }<br><span style="color: #008080;">264</span>     <span style="color: #0000ff;">else</span><br><span style="color: #008080;">265</span>     {<br><span style="color: #008080;">266</span>         info=DeleteAVL(&amp;(*T)-&gt;child[<span style="color: #800080;">1</span>],e);<br><span style="color: #008080;">267</span>         <span style="color: #0000ff;">if</span>(info!=<span style="color: #800080;">0</span>)    <span style="color: #0000ff;">return</span> info;<br><span style="color: #008080;">268</span>         selectforDelete(T,&amp;info,<span style="color: #800080;">1</span>);<br><span style="color: #008080;">269</span>     }<br><span style="color: #008080;">270</span>     <span style="color: #0000ff;">return</span> info;<br><span style="color: #008080;">271</span> }<br><span style="color: #008080;">272</span> <span style="color: #008000;">//</span><span style="color: #008000;">************************************************</span><span style="color: #008000;">//</span><span style="color: #008000;"><br></span><span style="color: #008080;">273</span> <span style="color: #008000;"><br></span><span style="color: #008080;">274</span> <span style="color: #008000;"><br></span><span style="color: #008080;">275</span> <span style="color: #008000;">//</span><span style="color: #008000;">*****************JUST FOR TEST************************</span><span style="color: #008000;">//<br></span><span style="color: #008080;">276</span> <span style="color: #0000ff;">#define</span> MOVE(x)    (x=(x+1)%1000)<br><span style="color: #008080;">277</span> AVL queue[<span style="color: #800080;">1000</span>];<br><span style="color: #008080;">278</span> <br><span style="color: #008080;">279</span> <span style="color: #0000ff;">void</span> print(AVL p,<span style="color: #0000ff;">int</span> i)<br><span style="color: #008080;">280</span> {<br><span style="color: #008080;">281</span>     <span style="color: #0000ff;">int</span> front,rear,temp,count;<br><span style="color: #008080;">282</span> <br><span style="color: #008080;">283</span>     front=rear=-<span style="color: #800080;">1</span>; count=temp=<span style="color: #800080;">0</span>;<br><span style="color: #008080;">284</span>     queue[MOVE(rear)]=p; count++;<br><span style="color: #008080;">285</span>     <br><span style="color: #008080;">286</span>     printf(<span style="color: #800000;">"</span><span style="color: #800000;">%d\n</span><span style="color: #800000;">"</span>,i);<br><span style="color: #008080;">287</span>     <span style="color: #0000ff;">while</span>(front!=rear)<br><span style="color: #008080;">288</span>     {<br><span style="color: #008080;">289</span>         p=queue[MOVE(front)];    count--;<br><span style="color: #008080;">290</span>         <br><span style="color: #008080;">291</span>         <br><span style="color: #008080;">292</span>         <span style="color: #0000ff;">if</span>(p-&gt;child[<span style="color: #800080;">0</span>])    queue[MOVE(rear)]=p-&gt;child[<span style="color: #800080;">0</span>],temp++;<br><span style="color: #008080;">293</span>         <span style="color: #0000ff;">if</span>(p-&gt;child[<span style="color: #800080;">1</span>])    queue[MOVE(rear)]=p-&gt;child[<span style="color: #800080;">1</span>],temp++;<br><span style="color: #008080;">294</span>         <br><span style="color: #008080;">295</span>         printf(<span style="color: #800000;">"</span><span style="color: #800000;">%d-&gt;%d </span><span style="color: #800000;">"</span>,p-&gt;e,p-&gt;bf);<br><span style="color: #008080;">296</span>         <span style="color: #0000ff;">if</span>(count==<span style="color: #800080;">0</span>)<br><span style="color: #008080;">297</span>         {<br><span style="color: #008080;">298</span>             printf(<span style="color: #800000;">"</span><span style="color: #800000;">\n</span><span style="color: #800000;">"</span>);<br><span style="color: #008080;">299</span>             count=temp;<br><span style="color: #008080;">300</span>             temp=<span style="color: #800080;">0</span>;<br><span style="color: #008080;">301</span>         }    <br><span style="color: #008080;">302</span>     }<br><span style="color: #008080;">303</span>     printf(<span style="color: #800000;">"</span><span style="color: #800000;">\n</span><span style="color: #800000;">"</span>);<br><span style="color: #008080;">304</span> }<br><span style="color: #008080;">305</span> <span style="color: #008000;">//</span><span style="color: #008000;">**************************************************</span><span style="color: #008000;">//<br></span><span style="color: #008080;">306</span> <br><span style="color: #008080;">307</span> <br><span style="color: #008080;">308</span> <span style="color: #0000ff;">int</span> main()<br><span style="color: #008080;">309</span> {<br><span style="color: #008080;">310</span>     AVL T=NULL;<br><span style="color: #008080;">311</span>     <span style="color: #0000ff;">int</span> i,nodenum=<span style="color: #800080;">0</span>;<br><span style="color: #008080;">312</span> <br><span style="color: #008080;">313</span>     freopen(<span style="color: #800000;">"</span><span style="color: #800000;">input.txt</span><span style="color: #800000;">"</span>,<span style="color: #800000;">"</span><span style="color: #800000;">w</span><span style="color: #800000;">"</span>,stdout);<br><span style="color: #008080;">314</span>     nodenum=<span style="color: #800080;">100</span>;<br><span style="color: #008080;">315</span>     <span style="color: #0000ff;">for</span>(i=<span style="color: #800080;">0</span>;i&lt;nodenum;i++)<br><span style="color: #008080;">316</span>     {<br><span style="color: #008080;">317</span>         InsertAVL(&amp;T,i);<br><span style="color: #008080;">318</span>     }<br><span style="color: #008080;">319</span>     <br><span style="color: #008080;">320</span>     print(T,-<span style="color: #800080;">1</span>);<br><span style="color: #008080;">321</span> <br><span style="color: #008080;">322</span>     <span style="color: #0000ff;">for</span>(i=<span style="color: #800080;">0</span>;i&lt;nodenum-<span style="color: #800080;">1</span>;i++)<br><span style="color: #008080;">323</span>     {<br><span style="color: #008080;">324</span>         DeleteAVL(&amp;T,i);<br><span style="color: #008080;">325</span>         print(T,i);<br><span style="color: #008080;">326</span>     }<br><span style="color: #008080;">327</span>     <br><span style="color: #008080;">328</span>     <span style="color: #0000ff;">return</span> <span style="color: #800080;">0</span>;<br><span style="color: #008080;">329</span> }</pre>
+</div>
+</div>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;"><br><br></p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">那个位操作函数，使程序好像很复杂似的，完全可以用一个外部结构体替换！只是我不想用外部变量，尽量在函数内完成吧</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">由于本人比较笨，写了很长时间~~有什么不正确的，欢迎指正！！！</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">这些图费了很大功夫才弄好，本来在编辑框里画的好好的，可是一发表，那些图有些就乱了，刚开始我还试着一个一个对照着修改，看最终发现还是不行……最后忽然想到我怎么不在编辑框中截图呢？最后在编辑框中一个一个截图一个一个上传，这样效果好多了！费这么大功夫只为一点：让读者看着舒服，容易理解。</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">我还想说：开这个博客园以来，也没多长时间，蛋把我气的不浅！每次都是搞好程序，准备到这里写博客时，就是打不开！气死我了！卡死啦！有时候确实是我网速慢，但有时候网速好了也很难打开啊！你说你还是程序员的家园！看你卡的，我都无语了！网速稍微慢点就打不开，就这浪费了我很多时间！我对博客园很失望！！</p>
+<p style="padding-bottom: 2px; margin: 4px 0px; padding-left: 0px; padding-right: 0px; padding-top: 2px;">朋友们，你们感觉呢？</p></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory">分类: <a href="http://www.cnblogs.com/fornever/category/335271.html">数据结构</a></div>
+<div id="EntryTag">标签: <a href="http://www.cnblogs.com/fornever/tag/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/">平衡二叉树</a></div>
+<div id="blog_post_info"><div id="green_channel">
+绿色通道：
+<a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(2249492,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+<a id="green_channel_follow" onclick="c_follow();" href="javascript:void(0);">关注我</a>
+<a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a><a id="green_channel_contact" href="http://space.cnblogs.com/msg/send/_Never_" target="_blank">与我联系</a>
+<a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./平衡二叉树（解惑） - _Never_ - 博客园_files/icon_weibo_24.png" alt=""></a>
+</div>
+<div id="author_profile">
+<div id="author_profile_info" class="author_profile_info">
+<a href="http://home.cnblogs.com/u/fornever/" target="_blank"><img src="./平衡二叉树（解惑） - _Never_ - 博客园_files/sample_face.gif" class="author_avatar" alt=""></a>
+<div id="author_profile_detail" class="author_profile_info">
+<a href="http://home.cnblogs.com/u/fornever/">_Never_</a><br>
+<a href="http://home.cnblogs.com/u/fornever/followees">关注 - 2</a><br>
+<a href="http://home.cnblogs.com/u/fornever/followers">粉丝 - 46</a>
+</div>
+</div>
+<div class="clear"></div>
+<div id="author_profile_honor"></div>
+<div id="author_profile_follow">
+    <a href="javascript:void(0);" onclick="c_follow();return false;">+加关注</a>
+</div>
+</div>
+<div id="div_digg">										
+    <div class="diggit" onclick="votePost(2249492,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">10</span>
+    </div>
+	<div class="buryit" onclick="votePost(2249492,&#39;Bury&#39;)"> 
+		<span class="burynum" id="bury_count">0</span>
+	</div>
+	<div class="clear"></div>	
+	<div class="diggword" id="digg_tips">
+    (请您对文章做出评价)
+    </div>	
+</div>
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="http://www.cnblogs.com/fornever/archive/2011/11/09/2243542.html" class="p_n_p_prefix">« </a> 上一篇：<a href="http://www.cnblogs.com/fornever/archive/2011/11/09/2243542.html" title="发布于2011-11-09 19:37">HDU 4109 Instrction Arrangement</a><br><a href="http://www.cnblogs.com/fornever/archive/2011/12/02/2270692.html" class="p_n_p_prefix">» </a> 下一篇：<a href="http://www.cnblogs.com/fornever/archive/2011/12/02/2270692.html" title="发布于2011-12-02 08:25">红黑树</a><br></div>
+</div>
+
+
+		<p class="postfoot">
+			posted on <span id="post-date">2011-11-15 11:20</span> <a href="http://www.cnblogs.com/fornever/">_Never_</a> 阅读(<span id="post_view_count">29427</span>) 评论(<span id="post_comment_count">14</span>)  <a href="http://i.cnblogs.com/EditPosts.aspx?postid=2249492" rel="nofollow">编辑</a> <a href="http://www.cnblogs.com/fornever/archive/2011/11/15/2249492.html#" onclick="AddToWz(2249492);return false;">收藏</a>
+		</p>
+	</div>
+	<script type="text/javascript">var allowComments=true,isLogined=false,cb_blogId=96823,cb_entryId=2249492,cb_blogApp=currentBlogApp,cb_blogUserGuid='37b893e5-b7d9-e011-8ee0-842b2b196315',cb_entryCreatedDate='2011/11/15 11:20:00';loadViewCount(cb_entryId);</script>
+	
+<a name="!comments"></a><div id="blog-comments-placeholder"><div id="comments_pager_top"></div>
+
+<div id="comments">
+<h3>Feedback</h3>
+	<font color="#993300" size="2"></font>
+	
+			<h4>
+				<a href="http://www.cnblogs.com/fornever/archive/2011/11/15/2249492.html#2244321" class="layer">#1楼</a><a name="2244321" id="comment_anchor_2244321"></a>
+					<span>
+						 <span class="comment_date">2011-11-15 16:59</span>
+					</span>
+				<a id="a_comment_author_2244321" href="http://www.cnblogs.com/ryhan/" target="_blank">ryhan</a> <a href="http://msg.cnblogs.com/msg/send/ryhan" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</h4>
+			<p>
+				</p><div id="comment_body_2244321" class="blog_comment_body">顶起。。。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2244321,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2244321,&#39;Bury&#39;,this)">反对(0)</a></div>
+				&nbsp;&nbsp;<span class="comment_actions"></span>
+				
+			<p></p>
+		
+			<h4>
+				<a href="http://www.cnblogs.com/fornever/archive/2011/11/15/2249492.html#2244453" class="layer">#2楼</a><a name="2244453" id="comment_anchor_2244453"></a>[<span class="louzhu">楼主</span>]
+					<span>
+						 <span class="comment_date">2011-11-15 19:02</span>
+					</span>
+				<a id="a_comment_author_2244453" href="http://www.cnblogs.com/fornever/" target="_blank">_Never_</a> <a href="http://msg.cnblogs.com/msg/send/_Never_" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</h4>
+			<p>
+				</p><div id="comment_body_2244453" class="blog_comment_body"><a href="http://www.cnblogs.com/fornever/archive/2011/11/15/2249492.html#2244321" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,2244321);">@</a>MyNewID<br>额，歇歇</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2244453,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2244453,&#39;Bury&#39;,this)">反对(0)</a></div>
+				&nbsp;&nbsp;<span class="comment_actions"></span>
+				
+			<p></p>
+		
+			<h4>
+				<a href="http://www.cnblogs.com/fornever/archive/2011/11/15/2249492.html#2253558" class="layer">#3楼</a><a name="2253558" id="comment_anchor_2253558"></a>
+					<span>
+						 <span class="comment_date">2011-11-25 14:33</span>
+					</span>
+				<a id="a_comment_author_2253558" href="http://home.cnblogs.com/u/291593/" target="_blank">sky-&gt;冰-&gt;蓝-&gt;sky</a> <a href="http://msg.cnblogs.com/msg/send/sky-%26gt%3b%e5%86%b0-%26gt%3b%e8%93%9d-%26gt%3bsky" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</h4>
+			<p>
+				</p><div id="comment_body_2253558" class="blog_comment_body">顶，lz辛苦了，学习了</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2253558,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2253558,&#39;Bury&#39;,this)">反对(0)</a></div>
+				&nbsp;&nbsp;<span class="comment_actions"></span>
+				
+			<p></p>
+		
+			<h4>
+				<a href="http://www.cnblogs.com/fornever/archive/2011/11/15/2249492.html#2254582" class="layer">#4楼</a><a name="2254582" id="comment_anchor_2254582"></a>[<span class="louzhu">楼主</span>]
+					<span>
+						 <span class="comment_date">2011-11-27 11:17</span>
+					</span>
+				<a id="a_comment_author_2254582" href="http://www.cnblogs.com/fornever/" target="_blank">_Never_</a> <a href="http://msg.cnblogs.com/msg/send/_Never_" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</h4>
+			<p>
+				</p><div id="comment_body_2254582" class="blog_comment_body">2011年11月27日11:18:02<br>文章中的一些语言上的小错误修改了下~</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2254582,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2254582,&#39;Bury&#39;,this)">反对(0)</a></div>
+				&nbsp;&nbsp;<span class="comment_actions"></span>
+				
+			<p></p>
+		
+			<h4>
+				<a href="http://www.cnblogs.com/fornever/archive/2011/11/15/2249492.html#2376202" class="layer">#5楼</a><a name="2376202" id="comment_anchor_2376202"></a>
+					<span>
+						 <span class="comment_date">2012-05-13 23:55</span>
+					</span>
+				<a id="a_comment_author_2376202" href="http://home.cnblogs.com/u/401619/" target="_blank">兴仔</a> <a href="http://msg.cnblogs.com/msg/send/%e5%85%b4%e4%bb%94" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</h4>
+			<p>
+				</p><div id="comment_body_2376202" class="blog_comment_body">很好很强大！！！</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2376202,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2376202,&#39;Bury&#39;,this)">反对(0)</a></div>
+				&nbsp;&nbsp;<span class="comment_actions"></span>
+				
+			<p></p>
+		
+			<h4>
+				<a href="http://www.cnblogs.com/fornever/archive/2011/11/15/2249492.html#2376248" class="layer">#6楼</a><a name="2376248" id="comment_anchor_2376248"></a>[<span class="louzhu">楼主</span>]
+					<span>
+						 <span class="comment_date">2012-05-14 07:36</span>
+					</span>
+				<a id="a_comment_author_2376248" href="http://www.cnblogs.com/fornever/" target="_blank">_Never_</a> <a href="http://msg.cnblogs.com/msg/send/_Never_" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</h4>
+			<p>
+				</p><div id="comment_body_2376248" class="blog_comment_body"><a href="http://www.cnblogs.com/fornever/archive/2011/11/15/2249492.html#2376202" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,2376202);">@</a>兴仔<br>额，谢谢</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2376248,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2376248,&#39;Bury&#39;,this)">反对(0)</a></div>
+				&nbsp;&nbsp;<span class="comment_actions"></span>
+				
+			<p></p>
+		
+			<h4>
+				<a href="http://www.cnblogs.com/fornever/archive/2011/11/15/2249492.html#2435196" class="layer">#7楼</a><a name="2435196" id="comment_anchor_2435196"></a>
+					<span>
+						 <span class="comment_date">2012-07-26 10:51</span>
+					</span>
+				<a id="a_comment_author_2435196" href="http://www.cnblogs.com/renwotao/" target="_blank">海人</a> <a href="http://msg.cnblogs.com/msg/send/%e6%b5%b7%e4%ba%ba" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</h4>
+			<p>
+				</p><div id="comment_body_2435196" class="blog_comment_body">插入节点中，右左图1,有问题啊？<br>其中a &gt; y &gt; x, 怎么最后变成了 y&gt; a &gt; x了？？求解？</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2435196,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2435196,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_2435196_avatar" style="display:none;">http://pic.cnitblog.com/face/u125061.jpg</span>
+				&nbsp;&nbsp;<span class="comment_actions"></span>
+				
+			<p></p>
+		
+			<h4>
+				<a href="http://www.cnblogs.com/fornever/archive/2011/11/15/2249492.html#2437698" class="layer">#8楼</a><a name="2437698" id="comment_anchor_2437698"></a>[<span class="louzhu">楼主</span>]
+					<span>
+						 <span class="comment_date">2012-07-30 17:19</span>
+					</span>
+				<a id="a_comment_author_2437698" href="http://www.cnblogs.com/fornever/" target="_blank">_Never_</a> <a href="http://msg.cnblogs.com/msg/send/_Never_" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</h4>
+			<p>
+				</p><div id="comment_body_2437698" class="blog_comment_body"><a href="http://www.cnblogs.com/fornever/archive/2011/11/15/2249492.html#2435196" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,2435196);">@</a>海人<br>哦，是错了应该是 <br><a href="./平衡二叉树（解惑） - _Never_ - 博客园_files/2012073017222918.jpg" target="_blank"><img src="./平衡二叉树（解惑） - _Never_ - 博客园_files/2012073017222918.jpg" alt="" border="0" onload="javascript:if(this.width&gt;500) this.width=500;"></a><br>谢谢您的指正！<br><br>2012年7月30日17:17:33 插入：右左图①错了！（更改如上图）<br>由于原图不方便改，就在这里说明一下！</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2437698,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2437698,&#39;Bury&#39;,this)">反对(0)</a></div>
+				&nbsp;&nbsp;<span class="comment_actions"></span>
+				
+			<p></p>
+		
+			<h4>
+				<a href="http://www.cnblogs.com/fornever/archive/2011/11/15/2249492.html#2645056" class="layer">#9楼</a><a name="2645056" id="comment_anchor_2645056"></a>
+					<span>
+						 <span class="comment_date">2013-03-28 20:01</span>
+					</span>
+				<a id="a_comment_author_2645056" href="http://www.cnblogs.com/diffman/" target="_blank">L&amp;A小白菜</a> <a href="http://msg.cnblogs.com/msg/send/L%26amp%3bA%e5%b0%8f%e7%99%bd%e8%8f%9c" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</h4>
+			<p>
+				</p><div id="comment_body_2645056" class="blog_comment_body">嗯，看晕了，保存下来深入研究。。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2645056,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2645056,&#39;Bury&#39;,this)">反对(0)</a></div>
+				&nbsp;&nbsp;<span class="comment_actions"></span>
+				
+			<p></p>
+		
+			<h4>
+				<a href="http://www.cnblogs.com/fornever/archive/2011/11/15/2249492.html#2645120" class="layer">#10楼</a><a name="2645120" id="comment_anchor_2645120"></a>
+					<span>
+						 <span class="comment_date">2013-03-28 21:38</span>
+					</span>
+				<a id="a_comment_author_2645120" href="http://www.cnblogs.com/mermaid/" target="_blank">MerMaid.</a> <a href="http://msg.cnblogs.com/msg/send/MerMaid." title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</h4>
+			<p>
+				</p><div id="comment_body_2645120" class="blog_comment_body">哈哈哈哈…… 看完了，写的真的很有耐心，受教。其实csdn的排版会舒服一些</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2645120,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2645120,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_2645120_avatar" style="display:none;">http://pic.cnitblog.com/face/505218/20130430212751.png</span>
+				&nbsp;&nbsp;<span class="comment_actions"></span>
+				
+			<p></p>
+		
+			<h4>
+				<a href="http://www.cnblogs.com/fornever/archive/2011/11/15/2249492.html#2645121" class="layer">#11楼</a><a name="2645121" id="comment_anchor_2645121"></a>
+					<span>
+						 <span class="comment_date">2013-03-28 21:38</span>
+					</span>
+				<a id="a_comment_author_2645121" href="http://www.cnblogs.com/mermaid/" target="_blank">MerMaid.</a> <a href="http://msg.cnblogs.com/msg/send/MerMaid." title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</h4>
+			<p>
+				</p><div id="comment_body_2645121" class="blog_comment_body">我也打算写东西的，没坚持下去</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2645121,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2645121,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_2645121_avatar" style="display:none;">http://pic.cnitblog.com/face/505218/20130430212751.png</span>
+				&nbsp;&nbsp;<span class="comment_actions"></span>
+				
+			<p></p>
+		
+			<h4>
+				<a href="http://www.cnblogs.com/fornever/archive/2011/11/15/2249492.html#2657639" class="layer">#12楼</a><a name="2657639" id="comment_anchor_2657639"></a>
+					<span>
+						 <span class="comment_date">2013-04-15 11:28</span>
+					</span>
+				<a id="a_comment_author_2657639" href="http://www.cnblogs.com/diffman/" target="_blank">L&amp;A小白菜</a> <a href="http://msg.cnblogs.com/msg/send/L%26amp%3bA%e5%b0%8f%e7%99%bd%e8%8f%9c" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</h4>
+			<p>
+				</p><div id="comment_body_2657639" class="blog_comment_body">蛋我觉得还是很不错的。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2657639,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2657639,&#39;Bury&#39;,this)">反对(0)</a></div>
+				&nbsp;&nbsp;<span class="comment_actions"></span>
+				
+			<p></p>
+		
+			<h4>
+				<a href="http://www.cnblogs.com/fornever/archive/2011/11/15/2249492.html#2685814" class="layer">#13楼</a><a name="2685814" id="comment_anchor_2685814"></a>
+					<span>
+						 <span class="comment_date">2013-05-21 10:32</span>
+					</span>
+				<a id="a_comment_author_2685814" href="http://www.cnblogs.com/huxiaoyun90/" target="_blank">空城夕</a> <a href="http://msg.cnblogs.com/msg/send/%e7%a9%ba%e5%9f%8e%e5%a4%95" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</h4>
+			<p>
+				</p><div id="comment_body_2685814" class="blog_comment_body">谢谢楼主，一直云里雾里的。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2685814,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2685814,&#39;Bury&#39;,this)">反对(0)</a></div>
+				&nbsp;&nbsp;<span class="comment_actions"></span>
+				
+			<p></p>
+		
+			<h4>
+				<a href="http://www.cnblogs.com/fornever/archive/2011/11/15/2249492.html#2818882" class="layer">#14楼</a><a name="2818882" id="comment_anchor_2818882"></a><span id="comment-maxId" style="display:none;">2818882</span><span id="comment-maxDate" style="display:none;">2013/11/18 19:42:54</span>
+					<span>
+						 <span class="comment_date">2013-11-18 19:42</span>
+					</span>
+				<a id="a_comment_author_2818882" href="http://home.cnblogs.com/u/583527/" target="_blank">cstars</a> <a href="http://msg.cnblogs.com/msg/send/cstars" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</h4>
+			<p>
+				</p><div id="comment_body_2818882" class="blog_comment_body">数据结构里说旋转，却没清楚的说清楚旋转是以哪点为中心，搞得确实很晕，一度有种想撕书的冲动，看了你这篇博文，现在感觉旋转还是比较靠谱。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2818882,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2818882,&#39;Bury&#39;,this)">反对(0)</a></div>
+				&nbsp;&nbsp;<span class="comment_actions"></span>
+				
+			<p></p>
+		
+<br>
+</div><div id="comments_pager_bottom"></div></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" id="lnk_RefreshComments" onclick="return RefreshCommentList();">刷新评论</a><a href="http://www.cnblogs.com/fornever/archive/2011/11/15/2249492.html#" onclick="return RefreshPage();">刷新页面</a><a href="http://www.cnblogs.com/fornever/archive/2011/11/15/2249492.html#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="site_nav_under"><a href="http://www.ucancode.com/index.htm" target="_blank">【推荐】50万行VC++源码: 大型组态工控、电力仿真CAD与GIS源码库</a><br><a href="http://www.rongcloud.cn/promotion" target="_blank">融云，免费为你的App加入IM功能——让你的App“聊”起来！！</a><br></div>
+<div id="opt_under_post"></div>
+<script type="text/javascript">
+    var enableGoogleAd = canShowAdsense(); var googletag = googletag || {}; googletag.cmd = googletag.cmd || [];
+    fixPostBodyFormat();
+</script>
+<div id="ad_under_post_holder">
+<script type="text/javascript">
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+    (function () {
+        if (enableGoogleAd) {
+            var gads = document.createElement('script');
+            gads.async = true;
+            gads.type = 'text/javascript';
+            var useSSL = 'https:' == document.location.protocol;
+            gads.src = (useSSL ? 'https:' : 'http:') + '//www.googletagservices.com/tag/js/gpt.js';
+            var node = document.getElementsByTagName('script')[0];
+            node.parentNode.insertBefore(gads, node);
+        }
+    })();
+</script>
+<script type="text/javascript">
+    try {
+        if (enableGoogleAd) {
+            googletag.cmd.push(function () {
+                googletag.defineSlot('/1090369/cnblogs_blogpost_C1_sitehome', [300, 250], 'div-gpt-ad-1346480159711-0').addService(googletag.pubads());
+                googletag.defineSlot('/1090369/cnblogs_blogpost_C2', [468, 60], 'div-gpt-ad-1410860226396-0').addService(googletag.pubads());
+                googletag.pubads().enableSingleRequest();
+                googletag.enableServices();
+            });
+        };
+    } catch (e) { }
+</script>
+<div id="google_ad_c1" class="c_ad_block">
+    <div id="div-gpt-ad-1346480159711-0" style="width:300px; height:250px;">
+    <script type="text/javascript">
+        try {
+            if (enableGoogleAd) {
+                googletag.cmd.push(function () { googletag.display('div-gpt-ad-1346480159711-0'); });            
+            } else {
+                $('#div-gpt-ad-1346480159711-0').hide();
+            }
+    } catch (e) { }
+    </script>
+    <div id="google_ads_iframe_/1090369/cnblogs_blogpost_C1_sitehome_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/1090369/cnblogs_blogpost_C1_sitehome_0" name="google_ads_iframe_/1090369/cnblogs_blogpost_C1_sitehome_0" width="300" height="250" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" src="javascript:"<html><body style='background:transparent'></body></html>"" style="border: 0px; vertical-align: bottom;"></iframe></div><iframe id="google_ads_iframe_/1090369/cnblogs_blogpost_C1_sitehome_0__hidden__" name="google_ads_iframe_/1090369/cnblogs_blogpost_C1_sitehome_0__hidden__" width="0" height="0" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" src="javascript:"<html><body style='background:transparent'></body></html>"" style="border: 0px; vertical-align: bottom; visibility: hidden; display: none;"></iframe></div>
+</div>
+</div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>最新IT新闻</b>:<br> ·  <a href="http://news.cnblogs.com/n/519233/" target="_blank">停产消息又来? 11英寸MBA明年或将会下架</a><br> ·  <a href="http://news.cnblogs.com/n/519232/" target="_blank">一个100年都不用更新的操作系统，这是怎么做到的？</a><br> ·  <a href="http://news.cnblogs.com/n/519231/" target="_blank">海外最新的垂直市场水平化攻略</a><br> ·  <a href="http://news.cnblogs.com/n/519230/" target="_blank">天河二号被禁购内幕：专家称美嫉妒中国超算</a><br> ·  <a href="http://news.cnblogs.com/n/519229/" target="_blank">谷歌希望凭借其QUIC协议加速互联网</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="google_ad_c2" class="c_ad_block">
+<div id="div-gpt-ad-1410860226396-0" style="width:468px; height:60px;">
+<script type="text/javascript">
+try {
+    if (enableGoogleAd) {
+        googletag.cmd.push(function () { googletag.display('div-gpt-ad-1410860226396-0'); });
+    } else {
+        $('#div-gpt-ad-1346480159711-0').hide();
+    }
+} catch (e) { }
+</script>
+<div id="google_ads_iframe_/1090369/cnblogs_blogpost_C2_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/1090369/cnblogs_blogpost_C2_0" name="google_ads_iframe_/1090369/cnblogs_blogpost_C2_0" width="468" height="60" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" src="javascript:"<html><body style='background:transparent'></body></html>"" style="border: 0px; vertical-align: bottom;"></iframe></div></div>
+</div>
+<div id="under_post_kb"><div class="itnews c_ad_block" id="kb_block"><b>最新知识库文章</b>:<br><div id="kb_recent"> ·  <a href="http://kb.cnblogs.com/page/515976/" target="_blank">好对象的7大美德</a><br> ·  <a href="http://kb.cnblogs.com/page/519141/" target="_blank">iOS应用架构谈（一）：架构设计的方法论</a><br> ·  <a href="http://kb.cnblogs.com/page/519052/" target="_blank">在团队中如何带领新手</a><br> ·  <a href="http://kb.cnblogs.com/page/518888/" target="_blank">微博背后的那些算法</a><br> ·  <a href="http://kb.cnblogs.com/page/518955/" target="_blank">谈“测试驱动的开发”</a><br></div>» <a href="http://kb.cnblogs.com/" target="_blank">更多知识库文章...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+$(function () {
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 200);
+});
+</script><script async="" type="text/javascript" src="./平衡二叉树（解惑） - _Never_ - 博客园_files/check_359604.js"></script><iframe src="./平衡二叉树（解惑） - _Never_ - 博客园_files/container.html" style="visibility: hidden; display: none;"></iframe>
+</div>
+
+</div>
+
+<p id="footer">
+	Powered by: 
+	<br>
+	
+	<a id="Footer1_Hyperlink3" name="Hyperlink1" href="http://www.cnblogs.com/" style="font-family:Verdana;font-size:12px;">博客园</a>
+	<br>
+	Copyright © _Never_
+</p>
+
+
+</body></html>
