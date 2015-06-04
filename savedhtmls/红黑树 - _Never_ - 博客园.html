@@ -1,0 +1,595 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0063)http://www.cnblogs.com/fornever/archive/2011/12/02/2270692.html -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script async="" src="./红黑树 - _Never_ - 博客园_files/analytics.js"></script>
+
+<title>红黑树 - _Never_ - 博客园</title>
+<link type="text/css" rel="stylesheet" href="./红黑树 - _Never_ - 博客园_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="./红黑树 - _Never_ - 博客园_files/bundle-MTRusty.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/fornever/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/fornever/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/fornever/wlwmanifest.xml">
+<script type="text/javascript" src="./红黑树 - _Never_ - 博客园_files/encoder.js"></script><script async="" type="text/javascript" src="./红黑树 - _Never_ - 博客园_files/gpt.js"></script><script src="./红黑树 - _Never_ - 博客园_files/jquery.js" type="text/javascript"></script>  
+<script type="text/javascript">var currentBlogApp = 'fornever', cb_enable_mathjax=false;</script>
+<script src="./红黑树 - _Never_ - 博客园_files/blog-common.js" type="text/javascript"></script>
+<script async="" type="text/javascript" src="./红黑树 - _Never_ - 博客园_files/pubads_impl_59.js"></script><script type="text/javascript" src="./红黑树 - _Never_ - 博客园_files/osd.js"></script><script type="text/javascript" async="" src="./红黑树 - _Never_ - 博客园_files/43820"></script></head>
+<body>
+<a name="top"></a>
+<div id="page_begin_html">
+</div><script>load_page_begin_html();</script>
+
+
+<div id="top">
+
+<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/fornever/">_Never_</a></h1>
+<p id="tagline">I walk slowly,but I will never stop.</p>
+</div>
+<div id="rightmenu">
+
+	
+<h3>My Links</h3>
+<ul>
+			<li><a id="MyLinks1_HomeLink" href="http://www.cnblogs.com/">博客园</a></li>
+			<li><a id="MyLinks1_MyHomeLink" href="http://www.cnblogs.com/fornever/">首页</a></li>
+			<li><a id="MyLinks1_ContactLink" accesskey="9" rel="nofollow" href="http://space.cnblogs.com/msg/send/_Never_">联系</a></li>
+			<li><a id="MyLinks1_Syndication" href="http://www.cnblogs.com/fornever/rss">订阅</a> <a id="MyLinks1_XMLLink" href="http://www.cnblogs.com/fornever/rss"><img src="./红黑树 - _Never_ - 博客园_files/xml.gif" alt="订阅"></a>
+			</li><li><a id="MyLinks1_Admin" rel="nofollow" href="http://i.cnblogs.com/">管理</a></li>
+</ul>
+	
+<h3>Blog Stats</h3>
+	<ul>
+		<li>Posts - 49
+		</li><li>Stories - 0
+		</li><li>Comments - 42
+		</li><li>Trackbacks - 0
+	</li>
+</ul>
+	
+<h3>News</h3>
+	<ul>
+	  <li><div id="blog-news"><div id="clicki_group_1783" title="clicki"></div><div id="profile_block">昵称：<a href="http://home.cnblogs.com/u/fornever/">_Never_</a><br>园龄：<a href="http://home.cnblogs.com/u/fornever/" title="入园时间：2011-09-08">3年7个月</a><br>粉丝：<a href="http://home.cnblogs.com/u/fornever/followers/">46</a><br>关注：<a href="http://home.cnblogs.com/u/fornever/followees/">2</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="cnblogs.UserManager.FollowBlogger(&#39;37b893e5-b7d9-e011-8ee0-842b2b196315&#39;)">+加关注</a></div></div></div><script type="text/javascript">loadBlogNews();</script></li>
+	</ul>
+
+	<div id="blog-sidecolumn">
+<div class="mySearch">
+<h3 class="catListTitle">搜索</h3>
+<div id="widget_my_zzk" class="div_my_zzk"><input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk"></div>
+<div id="widget_my_google" class="div_my_zzk"><input type="text" name="google_q" id="google_q" onkeydown="return google_go_enter(event)" class="input_my_zzk">&nbsp;<input onclick="google_go()" type="button" value="谷歌搜索" class="btn_my_zzk"></div>
+</div>
+
+
+<h3 class="catListTitle">常用链接</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/fornever/p/" title="我的博客的随笔列表">我的随笔</a></li><li><a href="http://www.cnblogs.com/fornever/MyComments.html" title="我发表过的评论列表">我的评论</a></li><li><a href="http://www.cnblogs.com/fornever/OtherPosts.html" title="我评论过的随笔列表">我的参与</a></li><li><a href="http://www.cnblogs.com/fornever/RecentComments.html" title="我的博客的评论列表">最新评论</a></li><li><a href="http://www.cnblogs.com/fornever/tag/" title="我的博客的标签列表">我的标签</a></li>
+</ul>
+<div id="itemListLin_con" style="display:none;">
+
+</div>
+<h3 class="catListTitle">我的标签</h3>
+<div id="MyTag">
+<ul>
+<li><a href="http://www.cnblogs.com/fornever/tag/%E6%9C%80%E7%9F%AD%E8%B7%AF/">最短路</a>(4)</li><li><a href="http://www.cnblogs.com/fornever/tag/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/">最小生成树</a>(3)</li><li><a href="http://www.cnblogs.com/fornever/tag/%E6%9C%80%E5%B0%8F%E8%B4%B9%E7%94%A8%E6%9C%80%E5%A4%A7%E6%B5%81/">最小费用最大流</a>(2)</li><li><a href="http://www.cnblogs.com/fornever/tag/%E6%9C%80%E5%B0%8F%E8%A6%86%E7%9B%96%E7%82%B9%E6%95%B0/">最小覆盖点数</a>(2)</li><li><a href="http://www.cnblogs.com/fornever/tag/%E4%BA%8C%E5%88%86%E5%9B%BE%E7%9A%84%E6%9C%80%E5%B0%8F%E7%82%B9%E6%9D%83%E8%A6%86%E7%9B%96%E9%9B%86/">二分图的最小点权覆盖集</a>(2)</li><li><a href="http://www.cnblogs.com/fornever/tag/%E7%AE%80%E5%8D%95DP/">简单DP</a>(2)</li><li><a href="http://www.cnblogs.com/fornever/tag/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/">平衡二叉树</a>(1)</li><li><a href="http://www.cnblogs.com/fornever/tag/%E6%B1%82%E5%8F%8D%E5%9B%BE%2BDFS%E6%B1%82%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F%E5%B9%B6%E6%9F%93%E8%89%B2%2BDP/">求反图+DFS求连通分量并染色+DP</a>(1)</li><li><a href="http://www.cnblogs.com/fornever/tag/%E6%80%9D%E7%BB%B4/">思维</a>(1)</li><li><a href="http://www.cnblogs.com/fornever/tag/%E6%8E%A8%E8%A7%84%E5%BE%8B/">推规律</a>(1)</li><li><a href="http://www.cnblogs.com/fornever/tag/">更多</a></li>
+</ul>
+</div>
+		<h3>随笔分类</h3>
+		
+				<ul>
+			
+				<li><a id="CatList_LinkList_0_Link_0" href="http://www.cnblogs.com/fornever/category/529381.html">Android(3)</a> </li>
+			
+				<li><a id="CatList_LinkList_0_Link_1" href="http://www.cnblogs.com/fornever/category/364772.html">NOJ(3)</a> </li>
+			
+				<li><a id="CatList_LinkList_0_Link_2" href="http://www.cnblogs.com/fornever/category/322974.html">不知道的东东(1)</a> </li>
+			
+				<li><a id="CatList_LinkList_0_Link_3" href="http://www.cnblogs.com/fornever/category/333270.html">其他(3)</a> </li>
+			
+				<li><a id="CatList_LinkList_0_Link_4" href="http://www.cnblogs.com/fornever/category/335271.html">数据结构(3)</a> </li>
+			
+				<li><a id="CatList_LinkList_0_Link_5" href="http://www.cnblogs.com/fornever/category/322543.html">图论(31)</a> </li>
+			
+				<li><a id="CatList_LinkList_0_Link_6" href="http://www.cnblogs.com/fornever/category/329036.html">我要记录这一刻！(2)</a> </li>
+			
+				</ul>
+			
+	
+		<h3>随笔档案</h3>
+		
+				<ul>
+			
+				<li><a id="CatList_LinkList_1_Link_0" href="http://www.cnblogs.com/fornever/archive/2013/11.html">2013年11月 (2)</a> </li>
+			
+				<li><a id="CatList_LinkList_1_Link_1" href="http://www.cnblogs.com/fornever/archive/2013/10.html">2013年10月 (1)</a> </li>
+			
+				<li><a id="CatList_LinkList_1_Link_2" href="http://www.cnblogs.com/fornever/archive/2012/05.html">2012年5月 (1)</a> </li>
+			
+				<li><a id="CatList_LinkList_1_Link_3" href="http://www.cnblogs.com/fornever/archive/2012/04.html">2012年4月 (3)</a> </li>
+			
+				<li><a id="CatList_LinkList_1_Link_4" href="http://www.cnblogs.com/fornever/archive/2012/03.html">2012年3月 (14)</a> </li>
+			
+				<li><a id="CatList_LinkList_1_Link_5" href="http://www.cnblogs.com/fornever/archive/2011/12.html">2011年12月 (1)</a> </li>
+			
+				<li><a id="CatList_LinkList_1_Link_6" href="http://www.cnblogs.com/fornever/archive/2011/11.html">2011年11月 (5)</a> </li>
+			
+				<li><a id="CatList_LinkList_1_Link_7" href="http://www.cnblogs.com/fornever/archive/2011/10.html">2011年10月 (8)</a> </li>
+			
+				<li><a id="CatList_LinkList_1_Link_8" href="http://www.cnblogs.com/fornever/archive/2011/09.html">2011年9月 (14)</a> </li>
+			
+				</ul>
+			
+	<div id="recent_comments_wrap">
+<h3 class="catListTitle">最新评论</h3>
+<div class="RecentComment" id="RecentComments">
+	<div id="RecentCommentsBlock"><ul>
+    <li class="recent_comment_title"><a href="http://www.cnblogs.com/fornever/archive/2012/03/19/2405912.html#3164426">1. Re:NYOJ Number Sequence-----Problem F</a></li>
+    <li class="recent_comment_body">#includeint main(){ int f[50],a,b,n,i; while(scanf("%d%d%d",&amp;a,&amp;b,&amp;n)!=EOF) { if(a......</li>
+    <li class="recent_comment_author">--杨 强</li>
+    <li class="recent_comment_title"><a href="http://www.cnblogs.com/fornever/archive/2011/12/02/2270692.html#3068003">2. Re:红黑树</a></li>
+    <li class="recent_comment_body">楼主，S是sibling的缩写，中文解析为兄弟姐妹</li>
+    <li class="recent_comment_author">--linkua</li>
+    <li class="recent_comment_title"><a href="http://www.cnblogs.com/fornever/archive/2011/12/02/2270692.html#3055069">3. Re:红黑树</a></li>
+    <li class="recent_comment_body">感觉我删除还是没看清楚，替代点N既然也要删除，怎么图中还有？</li>
+    <li class="recent_comment_author">--ggq89</li>
+    <li class="recent_comment_title"><a href="http://www.cnblogs.com/fornever/archive/2011/12/02/2270692.html#3055026">4. Re:红黑树</a></li>
+    <li class="recent_comment_body">哦，我明白了，替代点N一定是被删除点的直接前驱或者直接后继。</li>
+    <li class="recent_comment_author">--ggq89</li>
+    <li class="recent_comment_title"><a href="http://www.cnblogs.com/fornever/archive/2011/12/02/2270692.html#3055006">5. Re:红黑树</a></li>
+    <li class="recent_comment_body">LZ，你好，我不明白：替代点N的至少有一个子节点为NULL，这是为什么？</li>
+    <li class="recent_comment_author">--ggq89</li>
+</ul>
+</div>
+</div>
+</div><div id="topview_posts_wrap">
+<h3 class="catListTitle">阅读排行榜</h3>
+<div class="RecentComment" id="TopViewPosts"> 
+	<div id="TopViewPostsBlock"><ul><li><a href="http://www.cnblogs.com/fornever/archive/2011/11/15/2249492.html">1. 平衡二叉树（解惑）(29426)</a></li><li><a href="./红黑树 - _Never_ - 博客园_files/红黑树 - _Never_ - 博客园.html">2. 红黑树(10212)</a></li><li><a href="http://www.cnblogs.com/fornever/archive/2011/09/17/2179448.html">3. Tarjan的求双连通分量算法(3295)</a></li><li><a href="http://www.cnblogs.com/fornever/archive/2011/09/23/2182939.html">4. 欣赏Dinic递归---我沦陷了！(1885)</a></li><li><a href="http://www.cnblogs.com/fornever/archive/2011/09/20/2182903.html">5. 最大流的非递归Dinic算法(1163)</a></li></ul></div>
+</div>
+</div><div id="topfeedback_posts_wrap">
+<h3 class="catListTitle">评论排行榜</h3>
+<div class="RecentComment" id="TopCommentsPosts">
+	<div id="TopFeedbackPostsBlock"><ul><li><a href="./红黑树 - _Never_ - 博客园_files/红黑树 - _Never_ - 博客园.html">1. 红黑树(16)</a></li><li><a href="http://www.cnblogs.com/fornever/archive/2011/11/15/2249492.html">2. 平衡二叉树（解惑）(14)</a></li><li><a href="http://www.cnblogs.com/fornever/archive/2012/03/01/2375203.html">3. POJ 1112 Team them up(2)</a></li><li><a href="http://www.cnblogs.com/fornever/archive/2011/09/23/2182939.html">4. 欣赏Dinic递归---我沦陷了！(2)</a></li><li><a href="http://www.cnblogs.com/fornever/archive/2011/09/20/2182903.html">5. 最大流的非递归Dinic算法(2)</a></li></ul></div>
+</div></div><div id="topdigg_posts_wrap">
+<h3 class="catListTitle">推荐排行榜</h3>
+<div class="RecentComment">
+	<div id="TopDiggPostsBlock"><ul><li><a href="http://www.cnblogs.com/fornever/archive/2011/11/15/2249492.html">1. 平衡二叉树（解惑）(10)</a></li><li><a href="./红黑树 - _Never_ - 博客园_files/红黑树 - _Never_ - 博客园.html">2. 红黑树(6)</a></li><li><a href="http://www.cnblogs.com/fornever/archive/2011/09/23/2182939.html">3. 欣赏Dinic递归---我沦陷了！(2)</a></li><li><a href="http://www.cnblogs.com/fornever/archive/2011/09/20/2182903.html">4. 最大流的非递归Dinic算法(1)</a></li><li><a href="http://www.cnblogs.com/fornever/archive/2011/09/17/2179448.html">5. Tarjan的求双连通分量算法(1)</a></li></ul></div>
+</div></div></div><script type="text/javascript">loadBlogSideColumn();</script>
+
+</div>
+<div id="main">
+	
+
+	<div class="post">
+		<h2>
+			<a id="cb_post_title_url" href="./红黑树 - _Never_ - 博客园_files/红黑树 - _Never_ - 博客园.html">红黑树</a>
+		</h2>
+		<div id="cnblogs_post_body"><p>之前看了很多写红黑树的博客，但是感觉都讲的不太清楚！没说这样操作如何使他保持平衡的，于是疑惑重重，就看不下去了，一次不经意看到一个人说<a href="http://zh.wikipedia.org/wiki/%E7%BA%A2%E9%BB%91%E6%A0%91">维基百科的红黑树</a>讲的好，我就随便点了一下一看——这下疯了~，怎么讲的这么好！可以说是把一个复杂的问题，讲得简单化！这太幸福了！&nbsp;<!--EndFragment-->于是我就慢慢学会了！强烈推荐维基的这个讲解，再也找不到比这还好的讲解了！不知道它上边其它的怎么样，反正这个很好！！既然学会了，走过来了，我也要留下脚印！</p>
+<p>下面将是我对红黑树的总结，里面的性感的图片都是维基百科红黑树上的^_^！我讨论的红黑树需建立在会平衡二叉树的基础上去学，即若不懂“旋转”操作，请看<a href="http://www.cnblogs.com/fornever/archive/2011/11/15/2249492.html">平衡二叉树</a>的旋转操作。</p>
+<p><strong>红黑树（RBT）的定义：它或者是一颗空树，或者是具有一下性质的二叉查找树：</strong></p>
+<p style="text-align: left; margin-left: 180px;"><span style="background-color: #ffffff; color: #ff0000;"><strong>1.节点非红即黑。</strong></span></p>
+<p style="text-align: left; margin-left: 180px;"><span style="background-color: #ffffff; color: #ff0000;"><strong>2.根节点是黑色。</strong></span></p>
+<p style="text-align: left; margin-left: 180px;"><span style="background-color: #ffffff; color: #ff0000;"><strong>3.所有NULL结点称为叶子节点，且认为颜色为黑</strong></span><strong style="color: #ff0000;">。</strong></p>
+<p style="text-align: left; margin-left: 180px;"><span style="background-color: #ffffff; color: #ff0000;"><strong>4.所有红节点的子节点都为黑色。</strong></span></p>
+<p style="text-align: left; margin-left: 180px;"><span style="background-color: #ffffff; color: #ff0000;"><strong>5.从任一节点到其叶子节点的所有路径上都包含相同数目的黑节点。</strong></span></p>
+<p><img style="border-style: initial; border-color: initial; display: block; margin-left: auto; margin-right: auto;" src="./红黑树 - _Never_ - 博客园_files/2011120115382993.png" alt=""></p>
+<p style="text-align: left;">看完红黑树的定义是不是可晕？怎么这么多要求！！这怎么约束啊？我刚看到这5条约束，直接无语了，1-3、4还好说，第5点是怎么回事啊？怎么约束？整这么复杂的条件好干啥啊？我来简单说说呵：第3条，显然这里的叶子节点不是平常我们所说的叶子节点，如图标有NIL的为叶子节点，为什么不按常规出牌，因为按一般的叶子节点也行，但会使算法更复杂；第4条，即该树上决不允许存在两个连续的红节点；第5条，比如图中红8到1左边的叶子节点的路径包含2个黑节点，到6下的叶子节点的路径也包含2个黑节点。所有性质1-5合起来约束了该树的平衡性能--即该树上的最长路径不可能会大于2倍最短路径。为什么？因为第1条该树上的节点非红即黑，由于第4条该树上不允许存在两个连续的红节点，那么对于从一个节点到其叶子节点的一条最长的路径一定是红黑交错的，那么最短路径一定是纯黑色的节点；而又第5条从任一节点到其叶子节点的所有路径上都包含相同数目的黑节点，这么来说最长路径上的黑节点的数目和最短路径上的黑节点的数目相等！而又第2条根结点为黑、第3条叶子节点是黑，那么可知：最长路径&lt;=2*最短路径。一颗二叉树的平衡性能越好，那么它的效率越高！<span style="background-color: #00ffff;"><span style="background-color: #ffff00;">显然红黑树的平衡性能比AVL的略差些，但是经过大量试验证明，实际上红黑树的效率还是很不错了，仍能达到O(logN)</span><span style="background-color: #ffffff;">，这个我不知道，我现在不可能做过大量试验，只是听人家这样说，O(∩_∩)O哈哈~但你至少知道他的时间复杂度一定小于2O(logN)!</span></span></p>
+<p style="text-align: left;">上边的性质看个10遍，看懂看透彻再看操作！</p>
+<p style="text-align: left;"><span style="font-size: 15px; color: #0000ff;"><strong>插入操作</strong></span></p>
+<p style="text-align: left;"><span style="color: #000000;"><span style="line-height: 22px;">由于性质的约束：插入点不能为黑节点，应插入红节点。因为你插入黑节点将破坏性质5，所以每次插入的点都是红结点，但是若他的父节点也为红，那岂不是破坏了性质4？对啊，所以要做一些“旋转”和一些节点的变色！另为叙述方便我们给要插入的节点标为N（红色），父节点为P，祖父节点为G，叔节点为U。下边将一一列出所有插入时遇到的情况：</span></span></p>
+<p style="text-align: left;"><span style="color: #000000; font-size: 14px;"><span style="line-height: 22px;"><strong><span style="color: #0000ff;">情形1</span></strong>：</span></span><span style="color: #000000;"><span style="line-height: 22px;">该树为空树，直接插入根结点的位置，违反性质1，把节点颜色有红改为黑即可</span></span><span style="color: #000000; font-size: 14px;"><span style="line-height: 22px;">。</span></span></p>
+<p style="text-align: left;"><span style="color: #000000; font-size: 14px;"><span style="line-height: 22px;"><strong><span style="color: #0000ff;">情形2</span></strong>：</span></span><span style="color: #000000;"><span style="line-height: 22px;">插入节点N的父节点P为黑色，不违反任何性质，无需做任何修改</span></span><span style="color: #000000;"><span style="line-height: 22px;">。</span></span></p>
+<p style="text-align: left;"><span style="line-height: 22px; font-size: 13px;">&nbsp;情形1很简单，情形2中P为黑色，一切安然无事，但P为红就不一样了，下边是P为红的各种情况，也是真正要学的地方！</span></p>
+<p style="text-align: left;"><span style="color: #000000; font-size: 14px;"><span style="line-height: 22px;"><strong><span style="color: #0000ff;">情形3</span></strong>：</span></span><span style="color: #000000;"><span style="line-height: 22px;">N为红，P为红，（祖节点一定存在，且为黑，下边同理）U也为红，这里不论P是G的左孩子，还是右孩子；不论N是P的左孩子，还是右孩子</span></span><span style="color: #000000;"><span style="line-height: 22px;">。</span></span></p>
+<p><img style="float: right;" src="./红黑树 - _Never_ - 博客园_files/2011120116425251.png" alt=""><span style="color: #000000; font-size: 13px;"><span style="line-height: 22px;">操作：如图把P、U改为黑色，G改为红色，未结束。</span></span></p>
+<p><span style="color: #000000;"><span style="line-height: 22px;">解析：N、P都为红，违反性质4；若把P改为黑，符合性质4，显然左边少了一个黑节点，违反性质5；所<img src="file:///C:/Documents%20and%20Settings/Administrator/My%20Documents/My%20Pictures/%E5%AD%A6%E4%B9%A0%E5%9B%BE/%E7%BA%A2%E9%BB%91%E6%A0%91/RBT_insert_case_1.jpg" alt="">以</span></span><span style="line-height: 22px;">我们把G，U都改为相反色，这样一来通过G的路径的黑节点数目没变，即符合4、5，但是G变红了，若G的父节点又是红的不就有违反了4，是这样，所以经过上边操作后未结束，需把G作为起始点，即把G看做一个插入的红节点继续向上检索----属于哪种情况，按那种情况操作~要么中间就结束，要么知道根结点（此时根结点变红，一根结点向上检索，那木有了，那就把他变为黑色吧）。</span></p>
+<p style="text-align: left;"><span style="line-height: 22px;"><span style="color: #0000ff;"><strong>情形4</strong></span>：<span>N为红，P为红，U为黑，P为G的左孩子，N为P的左孩子（或者P为G的右孩子，N为P的左孩子；反正就是同向的）。</span></span></p>
+<p><span><img style="float: right;" src="./红黑树 - _Never_ - 博客园_files/2011120117212591.png" alt=""></span></p>
+<p><span style="line-height: 22px;">操作：如图P、G变色，P、G变换即左左单旋（或者右右单旋），结束。</span></p>
+<p><span style="line-height: 22px;">解析：要知道经过P、G变换（旋转），变换后P的位置就是当年G的位置，所以红P变为黑，而黑G变为红都是为了不违反性质5，而维持到达叶节点所包含的黑节点的数目不变！还可以理解为：也就是相当于（只是相当于，并不是实事，只是为了更好理解；）把红N头上的红节点移到对面黑U的头上；这样即符合了性质4也不违反性质5，这样就结束了。</span></p>
+<p style="text-align: left;">&nbsp;</p>
+<p style="text-align: left;"><strong><span style="color: #0000ff;">情形5</span></strong>：N为红，P为红，U为黑，P为G的左孩子，N为P的右孩子（或者P为G的右孩子，N为P的左孩子；反正两方向相反）。</p>
+<p><img style="float: right;" src="./红黑树 - _Never_ - 博客园_files/2011120117480873.png" alt=""></p>
+<p>&nbsp;</p>
+<p style="text-align: left;">操作：需要进行两次变换（旋转），图中只显示了一次变换-----首先P、N变换，颜色不变；然后就变成了情形4的情况，按照情况4操作，即结束。</p>
+<p style="text-align: left;">解析：由于P、N都为红，经变换，不违反性质5；然后就变成4的情形，此时G与G现在的左孩子变色，并变换，结束。</p>
+<p style="text-align: left;">&nbsp;</p>
+<p style="text-align: left;">&nbsp;</p>
+<p><span style="font-size: 15px; color: #ff0000;"><strong>删除操作</strong></span></p>
+<p>我们知道删除需先找到“替代点”来替代删除点而被删除，也就是删除的是替代点，而替代点N的至少有一个子节点为NULL，那么，若N为红色，则两个子节点一定都为NULL（必须地），那么直接把N删了，不违反任何性质，ok，结束了；若N为黑色，另一个节点M不为NULL，则另一个节点M一定是红色的，且M的子节点都为NULL（按性质来的，不明白，自己分析一下）那么把N删掉，M占到N的位置，并改为黑色，不违反任何性质，ok，结束了；若N为黑色，另一个节点也为NULL，则把N删掉，该位置置为NULL，显然这个黑节点被删除了，破坏了性质5，那么要以N节点为起始点检索看看属于那种情况，并作相应的操作，另还需说明N为黑点（也许是NULL，也许不是，都一样），P为父节点，S为兄弟节点（这个我真想给兄弟节点叫B（brother）多好啊，不过人家图就是S我也不能改，在重画图，太浪费时间了！S也行呵呵，就当是sister也行，哈哈）分为以下5中情况：</p>
+<p><span style="color: #ff0000;"><strong>情形1</strong></span><span style="font-size: 14px;">：</span>S为红色（那么父节点P一定是黑，子节点一定是黑），N是P的左孩子（或者N是P的右孩子）。</p>
+<p><img style="float: right;" src="./红黑树 - _Never_ - 博客园_files/2011120118423260.png" alt=""></p>
+<p>操作：P、S变色，并交换----相当于AVL中的右右中旋转即以P为中心S向左旋（或者是AVL中的左左中的旋转），未结束。</p>
+<p>解析：我们知道P的左边少了一个黑节点，这样操作相当于在N头上又加了一个红节点----不违反任何性质，但是到通过N的路径仍少了一个黑节点，需要再把对N进行一次检索，并作相应的操作才可以平衡（暂且不管往下看）。</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong><span style="color: #ff0000;">情形2</span></strong>：P、S及S的孩子们都为黑。</p>
+<p><img style="float: right;" src="./红黑树 - _Never_ - 博客园_files/2011120121290823.png" alt=""></p>
+<p>操作：S改为红色，未结束。<br>解析：S变为红色后经过S节点的路径的黑节点数目也减少了1，那个从P出发到其叶子节点到所有路径所包含的黑节点数目（记为num）相等了。但是这个num比之前少了1，因为左右子树中的黑节点数目都减少了！一般地，P是他父节点G的一个孩子，那么由G到其叶子节点的黑节点数目就不相等了，所以说没有结束，需把P当做新的起始点开始向上检索。</p>
+<p>&nbsp;</p>
+<p><strong><span style="color: #ff0000;">情形3</span></strong>：P为红（S一定为黑），S的孩子们都为黑。</p>
+<p><img style="border-style: initial; border-color: initial; float: right;" src="./红黑树 - _Never_ - 博客园_files/2011120121315179.png" alt=""></p>
+<p>&nbsp;</p>
+<p>操作：P该为黑，S改为红，结束。</p>
+<p>解析：这种情况最简单了，既然N这边少了一个黑节点，那么S这边就拿出了一个黑节点来共享一下，这样一来，S这边没少一个黑节点，而N这边便多了一个黑节点，这样就恢复了平衡，多么美好的事情哈！</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong><span style="color: #ff0000;">情形4</span></strong>：P任意色，S为黑，N是P的左孩子，S的右孩子SR为红，S的左孩子任意（或者是N是P的右孩子，S的左孩子为红，S的右孩子任意）。</p>
+<p><img style="float: right;" src="./红黑树 - _Never_ - 博客园_files/2011120121403620.png" alt=""></p>
+<p><br>操作：SR（SL）改为黑，P改为黑，S改为P的颜色，P、S变换--这里相对应于AVL中的右右中的旋转（或者是AVL中的左左旋转），结束。<br>解析：P、S旋转有变色，等于给N这边加了一个黑节点，P位置（是位置而不是P）的颜色不变，S这边少了一个黑节点；SR有红变黑，S这边又增加了一个黑节点；这样一来又恢复了平衡，结束。</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong><span style="color: #ff0000;">情形5</span></strong>：P任意色，S为黑，N是P的左孩子，S的左孩子SL为红，S的右孩子SR为黑（或者N是P的有孩子，S的右孩子为红，S的左孩子为黑）。</p>
+<p><img style="float: right;" src="./红黑树 - _Never_ - 博客园_files/2011120121420449.png" alt=""></p>
+<p>&nbsp;</p>
+<p>操作：SL（或SR）改为黑，S改为红，SL（SR）、S变换；此时就回到了情形4，SL（SR）变成了黑S，S变成了红SR（SL），做情形4的操作即可，这两次变换，其实就是对应AVL的右左的两次旋转（或者是AVL的左右的两次旋转）。<br>解析：这种情况如果你按情形4的操作的话，由于SR本来就是黑色，你无法弥补由于P、S的变换（旋转）给S这边造成的损失！所以我没先对S、SL进行变换之后就变为情形4的情况了，何乐而不为呢？</p>
+<p>&nbsp;</p>
+<p>好了，这五种情况都讨论完了，我想强调的是：注意哪些分方向的情况，每个分方向的情形就两种情况，不要搞迷了！下边我写的代码，不用关心是什么方向，我主要是用一个指针数组即child[2]，0代表左，1代表右，进行两个节点的变换（旋转）的时候只需向conversion(&amp;T,direction);传入父节点指针的地址及子节点在父节点的方位（0或1）；有兴趣可以看代码.</p>
+<p>欢迎大家留言指正哦^_^</p>
+<p>下边贴上我的C代码：<br>简介：主要是用递归实现插入、删除，回溯时检索并恢复平衡。</p>
+<p>&nbsp;</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show(&#39;99b32551-4851-4327-afbf-37b42a5d8dea&#39;)"><img id="code_img_closed_99b32551-4851-4327-afbf-37b42a5d8dea" class="code_img_closed" src="./红黑树 - _Never_ - 博客园_files/ContractedBlock.gif" alt="" style="display: none;"><img id="code_img_opened_99b32551-4851-4327-afbf-37b42a5d8dea" class="code_img_opened" style="" onclick="cnblogs_code_hide(&#39;99b32551-4851-4327-afbf-37b42a5d8dea&#39;,event)" src="./红黑树 - _Never_ - 博客园_files/ExpandedBlockStart.gif" alt=""><span class="cnblogs_code_collapse" style="display: none;">View Code </span>
+<div id="cnblogs_code_open_99b32551-4851-4327-afbf-37b42a5d8dea" class="cnblogs_code_hide" style="display: block;"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./红黑树 - _Never_ - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008080;">  1</span> #include &lt;stdio.h&gt;<br><span style="color: #008080;">  2</span> #include &lt;stdlib.h&gt;<br><span style="color: #008080;">  3</span> <br><span style="color: #008080;">  4</span> <span style="color: #0000ff;">#define</span> RED 0<br><span style="color: #008080;">  5</span> <span style="color: #0000ff;">#define</span> BACK 1<br><span style="color: #008080;">  6</span> <br><span style="color: #008080;">  7</span> typedef <span style="color: #0000ff;">int</span> Elemtype;<br><span style="color: #008080;">  8</span> <br><span style="color: #008080;">  9</span> <span style="color: #008000;">//</span><span style="color: #008000;">定义一个红黑树的结点</span><span style="color: #008000;"><br></span><span style="color: #008080;"> 10</span> typedef <span style="color: #0000ff;">struct</span> Red_Back_Tree<br><span style="color: #008080;"> 11</span> {<br><span style="color: #008080;"> 12</span>     Elemtype e;<br><span style="color: #008080;"> 13</span>     <span style="color: #0000ff;">int</span> color;<br><span style="color: #008080;"> 14</span>     <span style="color: #0000ff;">struct</span> Red_Back_Tree * child[<span style="color: #800080;">2</span>];<br><span style="color: #008080;"> 15</span> }* RBT;<br><span style="color: #008080;"> 16</span> <br><span style="color: #008080;"> 17</span> <span style="color: #008000;">//</span><span style="color: #008000;">    两个节点变换函数</span><span style="color: #008000;"><br></span><span style="color: #008080;"> 18</span> <span style="color: #0000ff;">void</span> conversion(RBT *T,<span style="color: #0000ff;">int</span> direction);<br><span style="color: #008080;"> 19</span> <br><span style="color: #008080;"> 20</span> <span style="color: #008000;">//</span><span style="color: #008000;">    删除一个节点的所用函数</span><span style="color: #008000;"><br></span><span style="color: #008080;"> 21</span> <span style="color: #0000ff;">int</span> DeleteRBT(RBT *T,Elemtype e);                                <span style="color: #008000;">//</span><span style="color: #008000;">    删除主(接口)函数</span><span style="color: #008000;"><br></span><span style="color: #008080;"> 22</span> <span style="color: #0000ff;">int</span> find_replace_point(RBT gogal,RBT *l);                        <span style="color: #008000;">//</span><span style="color: #008000;">    寻找替代点</span><span style="color: #008000;"><br></span><span style="color: #008080;"> 23</span> <span style="color: #0000ff;">int</span> keep_balance_for_delete(RBT *T,<span style="color: #0000ff;">int</span> direction);                <span style="color: #008000;">//</span><span style="color: #008000;">    删除的平衡操作</span><span style="color: #008000;"><br></span><span style="color: #008080;"> 24</span> <span style="color: #0000ff;">int</span> do_with_start_point(RBT gogal,RBT *T,<span style="color: #0000ff;">int</span> direction);                    <span style="color: #008000;">//</span><span style="color: #008000;">    处理第一个起始点<br></span><span style="color: #008080;"> 25</span> <span style="color: #008000;"><br></span><span style="color: #008080;"> 26</span> <span style="color: #008000;">//</span><span style="color: #008000;">    插入一个节点的所用函数</span><span style="color: #008000;"><br></span><span style="color: #008080;"> 27</span> <span style="color: #0000ff;">int</span> InsertRBT(RBT *T,Elemtype e);                                <span style="color: #008000;">//</span><span style="color: #008000;">    插入接口函数</span><span style="color: #008000;"><br></span><span style="color: #008080;"> 28</span> <span style="color: #0000ff;">int</span> _InsertRBT(RBT *T,Elemtype e);                                <span style="color: #008000;">//</span><span style="color: #008000;">    插入主函数</span><span style="color: #008000;"><br></span><span style="color: #008080;"> 29</span> <span style="color: #0000ff;">int</span> keep_balance_for_insert(RBT *T,<span style="color: #0000ff;">int</span> firdirection,Elemtype e);<span style="color: #008000;">//</span><span style="color: #008000;">    插入的平衡操作</span><span style="color: #008000;"><br></span><span style="color: #008080;"> 30</span> RBT create_one_node(Elemtype e);                                <span style="color: #008000;">//</span><span style="color: #008000;">    新建一个节点</span><span style="color: #008000;"><br></span><span style="color: #008080;"> 31</span> <br><span style="color: #008080;"> 32</span> <br><span style="color: #008080;"> 33</span> <br><span style="color: #008080;"> 34</span> <span style="color: #0000ff;">void</span> conversion(RBT *T,<span style="color: #0000ff;">int</span> direction)<br><span style="color: #008080;"> 35</span> {<br><span style="color: #008080;"> 36</span>     RBT f=(*T),s=f-&gt;child[direction],ss=s-&gt;child[!direction];<br><span style="color: #008080;"> 37</span> <br><span style="color: #008080;"> 38</span>     f-&gt;child[direction]=ss;<br><span style="color: #008080;"> 39</span>     s-&gt;child[!direction]=f;<br><span style="color: #008080;"> 40</span>     *T=s;<br><span style="color: #008080;"> 41</span> }<br><span style="color: #008080;"> 42</span> <br><span style="color: #008080;"> 43</span> <span style="color: #008000;">//</span><span style="color: #008000;">★★★★★★★★★★★★★★★★★删除操作★★★★★★★★★★★★★★★★★★★★★★★★★★★</span><span style="color: #008000;"><br></span><span style="color: #008080;"> 44</span> <br><span style="color: #008080;"> 45</span> <span style="color: #0000ff;">int</span> do_with_start_point(RBT gogal,RBT *T,<span style="color: #0000ff;">int</span> direction)<br><span style="color: #008080;"> 46</span> {<br><span style="color: #008080;"> 47</span>     gogal-&gt;e=(*T)-&gt;e;<br><span style="color: #008080;"> 48</span>     <span style="color: #0000ff;">if</span>(BACK==((*T)-&gt;color))<br><span style="color: #008080;"> 49</span>     {<br><span style="color: #008080;"> 50</span>         <span style="color: #0000ff;">if</span>(NULL!=(*T)-&gt;child[direction])<br><span style="color: #008080;"> 51</span>         {<br><span style="color: #008080;"> 52</span>             (*T)-&gt;e=(*T)-&gt;child[direction]-&gt;e;<br><span style="color: #008080;"> 53</span>             free((*T)-&gt;child[direction]);<br><span style="color: #008080;"> 54</span>             (*T)-&gt;child[direction]=NULL;<br><span style="color: #008080;"> 55</span>             <span style="color: #0000ff;">return</span> <span style="color: #800080;">1</span>;<br><span style="color: #008080;"> 56</span>         }<br><span style="color: #008080;"> 57</span>         <span style="color: #0000ff;">else</span><br><span style="color: #008080;"> 58</span>         {<br><span style="color: #008080;"> 59</span>             free((*T));<br><span style="color: #008080;"> 60</span>             *T=NULL;<br><span style="color: #008080;"> 61</span>             <span style="color: #0000ff;">return</span> <span style="color: #800080;">0</span>;<br><span style="color: #008080;"> 62</span>         }<br><span style="color: #008080;"> 63</span>     }<br><span style="color: #008080;"> 64</span>     <span style="color: #0000ff;">else</span><br><span style="color: #008080;"> 65</span>     {<br><span style="color: #008080;"> 66</span>         free((*T));<br><span style="color: #008080;"> 67</span>         (*T)=NULL;<br><span style="color: #008080;"> 68</span>         <span style="color: #0000ff;">return</span> <span style="color: #800080;">1</span>;<br><span style="color: #008080;"> 69</span>     }<br><span style="color: #008080;"> 70</span> }<br><span style="color: #008080;"> 71</span> <br><span style="color: #008080;"> 72</span> <span style="color: #0000ff;">int</span> keep_balance_for_delete(RBT *T,<span style="color: #0000ff;">int</span> direction)<br><span style="color: #008080;"> 73</span> {<br><span style="color: #008080;"> 74</span>     RBT p=(*T),b=p-&gt;child[!direction];<br><span style="color: #008080;"> 75</span>     <br><span style="color: #008080;"> 76</span>     <span style="color: #0000ff;">if</span>(RED==b-&gt;color)<br><span style="color: #008080;"> 77</span>     {<br><span style="color: #008080;"> 78</span>         p-&gt;color=RED;<br><span style="color: #008080;"> 79</span>         b-&gt;color=BACK;<br><span style="color: #008080;"> 80</span> <span style="color: #008000;">//</span><span style="color: #008000;">        conversion(&amp;p,!direction);</span><span style="color: #008000;">//</span><span style="color: #008000;">很恐怖的一个写法，偶然中发现：这里传的地址是假的!不是T!!<br></span><span style="color: #008080;"> 81</span> <span style="color: #008000;">//</span><span style="color: #008000;">                                    考我怎么这么傻逼!!如果不是及时发现，到调试时将是无限恐怖<br></span><span style="color: #008080;"> 82</span> <span style="color: #008000;">//</span><span style="color: #008000;">                                    将是一个巨大的隐藏的BUG!!!将会带来巨大的麻烦!!!</span><span style="color: #008000;"><br></span><span style="color: #008080;"> 83</span>         conversion(T,!direction);<br><span style="color: #008080;"> 84</span>         <span style="color: #0000ff;">return</span> keep_balance_for_delete(&amp;((*T)-&gt;child[direction]),direction);<br><span style="color: #008080;"> 85</span>     }<br><span style="color: #008080;"> 86</span>     <span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span>(BACK==p-&gt;color &amp;&amp; BACK==b-&gt;color &amp;&amp; <br><span style="color: #008080;"> 87</span>         (NULL==b-&gt;child[<span style="color: #800080;">0</span>] || BACK==b-&gt;child[<span style="color: #800080;">0</span>]-&gt;color) &amp;&amp; <br><span style="color: #008080;"> 88</span>         (NULL==b-&gt;child[<span style="color: #800080;">1</span>] || BACK==b-&gt;child[<span style="color: #800080;">1</span>]-&gt;color))    <span style="color: #008000;">//</span><span style="color: #008000;">这里感觉不美，就一次为NULL却每次要</span><span style="color: #008000;"><br></span><span style="color: #008080;"> 89</span>     {                                                        <span style="color: #008000;">//</span><span style="color: #008000;">判断是否为NULL，不美……</span><span style="color: #008000;"><br></span><span style="color: #008080;"> 90</span>         b-&gt;color=RED;<br><span style="color: #008080;"> 91</span>         <span style="color: #0000ff;">return</span>    <span style="color: #800080;">0</span>; <br><span style="color: #008080;"> 92</span>     }<br><span style="color: #008080;"> 93</span>     <span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span>(RED==p-&gt;color &amp;&amp; <br><span style="color: #008080;"> 94</span>         (NULL==b-&gt;child[<span style="color: #800080;">0</span>] || BACK==b-&gt;child[<span style="color: #800080;">0</span>]-&gt;color) &amp;&amp;<br><span style="color: #008080;"> 95</span>         (NULL==b-&gt;child[<span style="color: #800080;">1</span>] || BACK==b-&gt;child[<span style="color: #800080;">1</span>]-&gt;color))<br><span style="color: #008080;"> 96</span>     {<br><span style="color: #008080;"> 97</span>         p-&gt;color=BACK;<br><span style="color: #008080;"> 98</span>         b-&gt;color=RED;<br><span style="color: #008080;"> 99</span>         <span style="color: #0000ff;">return</span> <span style="color: #800080;">1</span>;<br><span style="color: #008080;">100</span>     }<br><span style="color: #008080;">101</span> <span style="color: #008000;">//</span><span style="color: #008000;">    第一次调试<br></span><span style="color: #008080;">102</span> <span style="color: #008000;">//</span><span style="color: #008000;">    调试原因：由于删除0点未按预料的操作应该是情况④，却按⑤操作<br></span><span style="color: #008080;">103</span> <span style="color: #008000;">//</span><span style="color: #008000;">    错误的地方：RED==b-&gt;child[!direction] ! 丢了-&gt;color 这个错误我上边错了几次，不过编译器报错改了过来<br></span><span style="color: #008080;">104</span> <span style="color: #008000;">//</span><span style="color: #008000;">    这次的编译器不报错，看代码也看不错来，最后追究到这里，一一对照才发现!!!<br></span><span style="color: #008080;">105</span> <span style="color: #008000;">//</span><span style="color: #008000;">    else if(BACK==b-&gt;color &amp;&amp; (NULL!=b-&gt;child[!direction] &amp;&amp; RED==b-&gt;child[!direction]))</span><span style="color: #008000;"><br></span><span style="color: #008080;">106</span>     <span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span>(BACK==b-&gt;color &amp;&amp; (NULL!=b-&gt;child[!direction] &amp;&amp; RED==b-&gt;child[!direction]-&gt;color))<br><span style="color: #008080;">107</span>     {<br><span style="color: #008080;">108</span>         b-&gt;color=p-&gt;color;<br><span style="color: #008080;">109</span>         p-&gt;color=BACK;<br><span style="color: #008080;">110</span>         b-&gt;child[!direction]-&gt;color=BACK;<br><span style="color: #008080;">111</span>         conversion(T,!direction);<br><span style="color: #008080;">112</span>         <span style="color: #0000ff;">return</span> <span style="color: #800080;">1</span>;<br><span style="color: #008080;">113</span>     }<br><span style="color: #008080;">114</span>     <span style="color: #0000ff;">else</span><br><span style="color: #008080;">115</span>     {<br><span style="color: #008080;">116</span>         b-&gt;child[direction]-&gt;color=p-&gt;color;<br><span style="color: #008080;">117</span>         p-&gt;color=BACK;<br><span style="color: #008080;">118</span>         conversion(&amp;(p-&gt;child[!direction]),direction);<span style="color: #008000;">//</span><span style="color: #008000;">这里的p写的才算不错!即p也(*T)都行，一样!</span><span style="color: #008000;"><br></span><span style="color: #008080;">119</span>         conversion(T,!direction);<br><span style="color: #008080;">120</span>         <span style="color: #0000ff;">return</span> <span style="color: #800080;">1</span>;<br><span style="color: #008080;">121</span>     }<br><span style="color: #008080;">122</span> <br><span style="color: #008080;">123</span> }<br><span style="color: #008080;">124</span> <br><span style="color: #008080;">125</span> <span style="color: #0000ff;">int</span> find_replace_point(RBT gogal,RBT *l)<br><span style="color: #008080;">126</span> {<br><span style="color: #008080;">127</span>     <span style="color: #0000ff;">if</span>(NULL!=(*l)-&gt;child[<span style="color: #800080;">0</span>])<br><span style="color: #008080;">128</span>     {<br><span style="color: #008080;">129</span>         <span style="color: #0000ff;">if</span>(find_replace_point(gogal,&amp;(*l)-&gt;child[<span style="color: #800080;">0</span>]))    <span style="color: #0000ff;">return</span> <span style="color: #800080;">1</span>;<br><span style="color: #008080;">130</span>         <span style="color: #0000ff;">return</span> keep_balance_for_delete(l,<span style="color: #800080;">0</span>);<br><span style="color: #008080;">131</span>         <span style="color: #008000;">//</span><span style="color: #008000;">...</span><span style="color: #008000;"><br></span><span style="color: #008080;">132</span>     }<br><span style="color: #008080;">133</span> <span style="color: #008000;">//</span><span style="color: #008000;">    第二次调试---其实没F5,F10,F11，根据结果猜测，到这里看看还真是的!<br></span><span style="color: #008080;">134</span> <span style="color: #008000;">//</span><span style="color: #008000;">    调试原因：删除0好了，删除1又错了---2不见了，1还在<br></span><span style="color: #008080;">135</span> <span style="color: #008000;">//</span><span style="color: #008000;">    错误的地方：就在这里，找到替代点，却没有“替代”，这等于把替代点删了...<br></span><span style="color: #008080;">136</span> <span style="color: #008000;">//</span><span style="color: #008000;">                这里很明显，gogal这个删除点指针根本就没用...我当时忘了吧!!修改如下!<br></span><span style="color: #008080;">137</span> <span style="color: #008000;">//</span><span style="color: #008000;">    else    </span><span style="color: #008000;">//</span><span style="color: #008000;">替代点为起始点<br></span><span style="color: #008080;">138</span> <span style="color: #008000;">//</span><span style="color: #008000;">    {<br></span><span style="color: #008080;">139</span> <span style="color: #008000;">//</span><span style="color: #008000;">        return do_with_start_point(l,1);<br></span><span style="color: #008080;">140</span> <span style="color: #008000;">//</span><span style="color: #008000;">    }</span><span style="color: #008000;"><br></span><span style="color: #008080;">141</span>     <span style="color: #0000ff;">else</span><br><span style="color: #008080;">142</span>     {<br><span style="color: #008080;">143</span>         <span style="color: #0000ff;">return</span> do_with_start_point(gogal,l,<span style="color: #800080;">1</span>);<br><span style="color: #008080;">144</span>     }<br><span style="color: #008080;">145</span> }<br><span style="color: #008080;">146</span> <br><span style="color: #008080;">147</span> <span style="color: #0000ff;">int</span> DeleteRBT(RBT *T,Elemtype e)<br><span style="color: #008080;">148</span> {<br><span style="color: #008080;">149</span>     <span style="color: #0000ff;">if</span>(!(*T))    <span style="color: #0000ff;">return</span> -<span style="color: #800080;">1</span>;<br><span style="color: #008080;">150</span>     <span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span>(e&gt;(*T)-&gt;e)<br><span style="color: #008080;">151</span>     {<br><span style="color: #008080;">152</span>         <span style="color: #0000ff;">if</span>(DeleteRBT(&amp;((*T)-&gt;child[<span style="color: #800080;">1</span>]),e))    <span style="color: #0000ff;">return</span> <span style="color: #800080;">1</span>;<br><span style="color: #008080;">153</span>         <span style="color: #0000ff;">return</span> keep_balance_for_delete(T,<span style="color: #800080;">1</span>);<br><span style="color: #008080;">154</span>         <span style="color: #008000;">//</span><span style="color: #008000;">...</span><span style="color: #008000;"><br></span><span style="color: #008080;">155</span>     }<br><span style="color: #008080;">156</span>     <span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span>(e&lt;(*T)-&gt;e)<br><span style="color: #008080;">157</span>     {<br><span style="color: #008080;">158</span>         <span style="color: #0000ff;">if</span>(DeleteRBT(&amp;((*T)-&gt;child[<span style="color: #800080;">0</span>]),e))    <span style="color: #0000ff;">return</span> <span style="color: #800080;">1</span>;<br><span style="color: #008080;">159</span>         <span style="color: #0000ff;">return</span> keep_balance_for_delete(T,<span style="color: #800080;">0</span>);<br><span style="color: #008080;">160</span>         <span style="color: #008000;">//</span><span style="color: #008000;">...</span><span style="color: #008000;"><br></span><span style="color: #008080;">161</span>     }<br><span style="color: #008080;">162</span>     <span style="color: #0000ff;">else</span><br><span style="color: #008080;">163</span>     {<br><span style="color: #008080;">164</span>         <span style="color: #0000ff;">if</span>(NULL!=(*T)-&gt;child[<span style="color: #800080;">1</span>])    <span style="color: #008000;">//</span><span style="color: #008000;">真正的删除点不是起始点，需找替代点</span><span style="color: #008000;"><br></span><span style="color: #008080;">165</span>         {<br><span style="color: #008080;">166</span>             <span style="color: #0000ff;">if</span>(find_replace_point((*T),&amp;((*T)-&gt;child[<span style="color: #800080;">1</span>])))    <span style="color: #0000ff;">return</span> <span style="color: #800080;">1</span>;<br><span style="color: #008080;">167</span>             <span style="color: #0000ff;">return</span> keep_balance_for_delete(T,<span style="color: #800080;">1</span>);<br><span style="color: #008080;">168</span>             <span style="color: #008000;">//</span><span style="color: #008000;">...</span><span style="color: #008000;"><br></span><span style="color: #008080;">169</span>         }<br><span style="color: #008080;">170</span>         <span style="color: #0000ff;">else</span>    <span style="color: #008000;">//</span><span style="color: #008000;">真正的删除点就是起始点</span><span style="color: #008000;"><br></span><span style="color: #008080;">171</span>         {<br><span style="color: #008080;">172</span>             <span style="color: #0000ff;">return</span> do_with_start_point((*T),T,<span style="color: #800080;">0</span>);<br><span style="color: #008080;">173</span>         }<br><span style="color: #008080;">174</span>     }<br><span style="color: #008080;">175</span> }<br><span style="color: #008080;">176</span> <span style="color: #008000;">//</span><span style="color: #008000;">★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★<br></span><span style="color: #008080;">177</span> <span style="color: #008000;"><br></span><span style="color: #008080;">178</span> <span style="color: #008000;"><br></span><span style="color: #008080;">179</span> <span style="color: #008000;">//</span><span style="color: #008000;">★★★★★★★★★★★★★★★★★★★插入操作★★★★★★★★★★★★★★★★★★★★★★★★★</span><span style="color: #008000;"><br></span><span style="color: #008080;">180</span> <br><span style="color: #008080;">181</span> RBT create_one_node(Elemtype e)<br><span style="color: #008080;">182</span> {<br><span style="color: #008080;">183</span>     RBT p=(RBT)malloc(<span style="color: #0000ff;">sizeof</span>(<span style="color: #0000ff;">struct</span> Red_Back_Tree));<br><span style="color: #008080;">184</span>     p-&gt;e=e;    p-&gt;color=RED;<br><span style="color: #008080;">185</span>     p-&gt;child[<span style="color: #800080;">0</span>]=p-&gt;child[<span style="color: #800080;">1</span>]=NULL;<br><span style="color: #008080;">186</span>     <span style="color: #0000ff;">return</span> p;<br><span style="color: #008080;">187</span> }<br><span style="color: #008080;">188</span> <br><span style="color: #008080;">189</span> <span style="color: #0000ff;">int</span> keep_balance_for_insert(RBT *T,<span style="color: #0000ff;">int</span> firdirection,Elemtype e)<br><span style="color: #008080;">190</span> {<br><span style="color: #008080;">191</span>     RBT p=(*T)-&gt;child[firdirection],u=(*T)-&gt;child[!firdirection];<br><span style="color: #008080;">192</span>     <span style="color: #0000ff;">int</span> secdirection=( (e&gt;p-&gt;e) ? <span style="color: #800080;">1</span> : <span style="color: #800080;">0</span> );    <span style="color: #008000;">//</span><span style="color: #008000;">    查处第二个方向</span><span style="color: #008000;"><br></span><span style="color: #008080;">193</span>     <br><span style="color: #008080;">194</span>     <span style="color: #0000ff;">if</span>(NULL!=u &amp;&amp; RED==u-&gt;color)    <span style="color: #008000;">/*</span><span style="color: #008000;">****③叔节点为红色****</span><span style="color: #008000;">*/</span>    <br><span style="color: #008080;">195</span>     {<br><span style="color: #008080;">196</span>         p-&gt;color=BACK;<br><span style="color: #008080;">197</span>         u-&gt;color=BACK;<br><span style="color: #008080;">198</span>         (*T)-&gt;color=RED;<br><span style="color: #008080;">199</span>         <span style="color: #0000ff;">return</span> <span style="color: #800080;">1</span>;    <span style="color: #008000;">//</span><span style="color: #008000;">继续...</span><span style="color: #008000;"><br></span><span style="color: #008080;">200</span>     }<br><span style="color: #008080;">201</span>     <span style="color: #0000ff;">else</span>                            <span style="color: #008000;">/*</span><span style="color: #008000;">****④叔节点为黑色****</span><span style="color: #008000;">*/</span>    <br><span style="color: #008080;">202</span>     {<br><span style="color: #008080;">203</span>         <span style="color: #0000ff;">if</span>(firdirection!=secdirection)    conversion(&amp;((*T)-&gt;child[firdirection]),secdirection);<br><span style="color: #008080;">204</span>         (*T)-&gt;color=RED;    (*T)-&gt;child[firdirection]-&gt;color=BACK;<br><span style="color: #008080;">205</span>         conversion(T,firdirection);<br><span style="color: #008080;">206</span>         <span style="color: #0000ff;">return</span> <span style="color: #800080;">0</span>;<br><span style="color: #008080;">207</span>     }<br><span style="color: #008080;">208</span> }<br><span style="color: #008080;">209</span> <br><span style="color: #008080;">210</span> <span style="color: #0000ff;">int</span> _InsertRBT(RBT *T,Elemtype e)<br><span style="color: #008080;">211</span> {<br><span style="color: #008080;">212</span>     <span style="color: #0000ff;">int</span> info=<span style="color: #800080;">0</span>;<br><span style="color: #008080;">213</span>     <span style="color: #0000ff;">if</span>(NULL==(*T))                    <span style="color: #008000;">/*</span><span style="color: #008000;">****①插入到根节点****</span><span style="color: #008000;">*/</span>        <span style="color: #008000;">//</span><span style="color: #008000;">这里只是包含这种情况</span><span style="color: #008000;"><br></span><span style="color: #008080;">214</span>     {<br><span style="color: #008080;">215</span>         *T=create_one_node(e);<br><span style="color: #008080;">216</span>         (*T)-&gt;color=RED;<br><span style="color: #008080;">217</span>         info=<span style="color: #800080;">1</span>;<br><span style="color: #008080;">218</span>     }<br><span style="color: #008080;">219</span>     <span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span>(e&gt;((*T)-&gt;e))<br><span style="color: #008080;">220</span>     {<br><span style="color: #008080;">221</span>         info=_InsertRBT(&amp;(*T)-&gt;child[<span style="color: #800080;">1</span>],e);<br><span style="color: #008080;">222</span>         <span style="color: #0000ff;">if</span>(info&lt;<span style="color: #800080;">1</span>)    <span style="color: #0000ff;">return</span> info;<br><span style="color: #008080;">223</span>         <span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span>(info==<span style="color: #800080;">1</span>)            <span style="color: #008000;">/*</span><span style="color: #008000;">****②父节点为黑*****</span><span style="color: #008000;">*/</span><br><span style="color: #008080;">224</span>         {<br><span style="color: #008080;">225</span>             <span style="color: #0000ff;">if</span>(BACK==((*T)-&gt;color))    info--;<br><span style="color: #008080;">226</span>             <span style="color: #0000ff;">else</span>    info++;<br><span style="color: #008080;">227</span>         }<br><span style="color: #008080;">228</span>         <span style="color: #0000ff;">else</span><br><span style="color: #008080;">229</span>         {<br><span style="color: #008080;">230</span>             info=keep_balance_for_insert(T,<span style="color: #800080;">1</span>,e);<br><span style="color: #008080;">231</span>         }<br><span style="color: #008080;">232</span>         <br><span style="color: #008080;">233</span>     }<br><span style="color: #008080;">234</span>     <span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span>(e&lt;((*T)-&gt;e))<br><span style="color: #008080;">235</span>     {<br><span style="color: #008080;">236</span>         info=_InsertRBT(&amp;((*T)-&gt;child[<span style="color: #800080;">0</span>]),e);<br><span style="color: #008080;">237</span>         <span style="color: #0000ff;">if</span>(info&lt;<span style="color: #800080;">1</span>)    <span style="color: #0000ff;">return</span> info;<br><span style="color: #008080;">238</span>         <span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span>(info==<span style="color: #800080;">1</span>)    <br><span style="color: #008080;">239</span>         {<br><span style="color: #008080;">240</span>             <span style="color: #0000ff;">if</span>(BACK==((*T)-&gt;color))    info--;<br><span style="color: #008080;">241</span>             <span style="color: #0000ff;">else</span>    info++;<br><span style="color: #008080;">242</span>         }<br><span style="color: #008080;">243</span>         <span style="color: #0000ff;">else</span><br><span style="color: #008080;">244</span>         {<br><span style="color: #008080;">245</span>             info=keep_balance_for_insert(T,<span style="color: #800080;">0</span>,e);<br><span style="color: #008080;">246</span>         }<br><span style="color: #008080;">247</span>         <br><span style="color: #008080;">248</span>     }<br><span style="color: #008080;">249</span>     <span style="color: #0000ff;">else</span>    <span style="color: #0000ff;">return</span> info=-<span style="color: #800080;">1</span>;<br><span style="color: #008080;">250</span>     <br><span style="color: #008080;">251</span>     <span style="color: #0000ff;">return</span> info;<br><span style="color: #008080;">252</span> }<br><span style="color: #008080;">253</span> <br><span style="color: #008080;">254</span> <span style="color: #0000ff;">int</span> InsertRBT(RBT *T,Elemtype e)    <span style="color: #008000;">//</span><span style="color: #008000;">插入节点函数返回值： -1-&gt;改点已存在  0-&gt;成功插入</span><span style="color: #008000;"><br></span><span style="color: #008080;">255</span> {<br><span style="color: #008080;">256</span>     <span style="color: #0000ff;">int</span> info=<span style="color: #800080;">0</span>;        <span style="color: #008000;">//</span><span style="color: #008000;">    info:  -1-&gt;已存在 0-&gt;结束 1-&gt;回溯到父节点 2-&gt;回溯到祖节点<br></span><span style="color: #008080;">257</span> <span style="color: #008000;">    <br></span><span style="color: #008080;">258</span> <span style="color: #008000;">//</span><span style="color: #008000;">2011年11月30日9:13:47 昨天晚上最后又想来这里这个if可以不要即可，也就是把它也放到_InsertRBT<br></span><span style="color: #008080;">259</span> <span style="color: #008000;">//</span><span style="color: #008000;">内处理，在InsertRBT中有个判断即可!即改成下边的写法!<br></span><span style="color: #008080;">260</span> <span style="color: #008000;">//</span><span style="color: #008000;">    if(NULL==(*T))                    /*****①插入到根节点*****/<br></span><span style="color: #008080;">261</span> <span style="color: #008000;">//</span><span style="color: #008000;">    {<br></span><span style="color: #008080;">262</span> <span style="color: #008000;">//</span><span style="color: #008000;">        *T=create_one_node(e);<br></span><span style="color: #008080;">263</span> <span style="color: #008000;">//</span><span style="color: #008000;">        (*T)-&gt;color=BACK;<br></span><span style="color: #008080;">264</span> <span style="color: #008000;">//</span><span style="color: #008000;">    }<br></span><span style="color: #008080;">265</span> <span style="color: #008000;">//</span><span style="color: #008000;">    else            <br></span><span style="color: #008080;">266</span> <span style="color: #008000;">//</span><span style="color: #008000;">    {<br></span><span style="color: #008080;">267</span> <span style="color: #008000;">//</span><span style="color: #008000;">        info=_InsertRBT(T,e);    </span><span style="color: #008000;">//</span><span style="color: #008000;">    经过再三思考，这里info的返回值只可能为：-1  0  1<br></span><span style="color: #008080;">268</span> <span style="color: #008000;">//</span><span style="color: #008000;">        if(info&gt;0)    (*T)-&gt;color=BACK,info=0;    </span><span style="color: #008000;">//</span><span style="color: #008000;">    查看根节点是否为红<br></span><span style="color: #008080;">269</span> <span style="color: #008000;">//</span><span style="color: #008000;">    }</span><span style="color: #008000;"><br></span><span style="color: #008080;">270</span> <br><span style="color: #008080;">271</span>     info=_InsertRBT(T,e);<br><span style="color: #008080;">272</span>     <span style="color: #0000ff;">if</span>(info==<span style="color: #800080;">1</span>)    (*T)-&gt;color=BACK,info=<span style="color: #800080;">0</span>;    <br><span style="color: #008080;">273</span>     <span style="color: #008000;">//</span><span style="color: #008000;">    为了防止根结点变为红，它其实是处理了两种情况的后遗症<br></span><span style="color: #008080;">274</span> <span style="color: #008000;">//</span><span style="color: #008000;">    分别是：③情况回溯上来，根节点变红  ①情况插入点即为根节点，为红<br></span><span style="color: #008080;">275</span> <span style="color: #008000;">//</span><span style="color: #008000;">    这里没有直接把根结点变黑，主要是为了与_InsertRBT保持一致的写法，其实都行!</span><span style="color: #008000;"><br></span><span style="color: #008080;">276</span>     <span style="color: #0000ff;">return</span> info;<br><span style="color: #008080;">277</span> }<br><span style="color: #008080;">278</span> <span style="color: #008000;">//</span><span style="color: #008000;">★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★<br></span><span style="color: #008080;">279</span> <span style="color: #008000;"><br></span><span style="color: #008080;">280</span> <span style="color: #008000;"><br></span><span style="color: #008080;">281</span> <span style="color: #008000;">//</span><span style="color: #008000;">******************JUST FOR TEST********************</span><span style="color: #008000;">//<br></span><span style="color: #008080;">282</span> RBT queue[<span style="color: #800080;">1000</span>];<br><span style="color: #008080;">283</span> <span style="color: #0000ff;">void</span> print(RBT cur)<br><span style="color: #008080;">284</span> {<br><span style="color: #008080;">285</span>     <span style="color: #0000ff;">int</span> front=<span style="color: #800080;">0</span>,rear=<span style="color: #800080;">0</span>;<br><span style="color: #008080;">286</span>     <span style="color: #0000ff;">int</span> count=<span style="color: #800080;">1</span>,temp=<span style="color: #800080;">0</span>;<br><span style="color: #008080;">287</span> <br><span style="color: #008080;">288</span>     <span style="color: #0000ff;">if</span>(NULL==cur)    <br><span style="color: #008080;">289</span>     {<br><span style="color: #008080;">290</span>         printf(<span style="color: #800000;">"</span><span style="color: #800000;">NULL\n</span><span style="color: #800000;">"</span>);<br><span style="color: #008080;">291</span>         <span style="color: #0000ff;">return</span> ;<br><span style="color: #008080;">292</span>     }<br><span style="color: #008080;">293</span> <br><span style="color: #008080;">294</span>     queue[rear]=cur;<br><span style="color: #008080;">295</span>     <span style="color: #0000ff;">while</span>(front&lt;=rear)<br><span style="color: #008080;">296</span>     {<br><span style="color: #008080;">297</span>         cur=queue[front++];    count--;<br><span style="color: #008080;">298</span>         <span style="color: #0000ff;">if</span>(NULL!=cur-&gt;child[<span style="color: #800080;">0</span>])    queue[++rear]=cur-&gt;child[<span style="color: #800080;">0</span>],temp++;<br><span style="color: #008080;">299</span>         <span style="color: #0000ff;">if</span>(NULL!=cur-&gt;child[<span style="color: #800080;">1</span>])    queue[++rear]=cur-&gt;child[<span style="color: #800080;">1</span>],temp++;<br><span style="color: #008080;">300</span> <br><span style="color: #008080;">301</span>         printf(<span style="color: #800000;">"</span><span style="color: #800000;">%d color-&gt;</span><span style="color: #800000;">"</span>,cur-&gt;e);<br><span style="color: #008080;">302</span>         <span style="color: #0000ff;">if</span>(BACK==cur-&gt;color)    printf(<span style="color: #800000;">"</span><span style="color: #800000;">BACK |</span><span style="color: #800000;">"</span>);<br><span style="color: #008080;">303</span>         <span style="color: #0000ff;">else</span>    printf(<span style="color: #800000;">"</span><span style="color: #800000;">RED  |</span><span style="color: #800000;">"</span>);<br><span style="color: #008080;">304</span>         <br><span style="color: #008080;">305</span>         <span style="color: #0000ff;">if</span>(<span style="color: #800080;">0</span>==count)<br><span style="color: #008080;">306</span>         {<br><span style="color: #008080;">307</span>             count=temp;<br><span style="color: #008080;">308</span>             temp=<span style="color: #800080;">0</span>;<br><span style="color: #008080;">309</span>             printf(<span style="color: #800000;">"</span><span style="color: #800000;">\n</span><span style="color: #800000;">"</span>);<br><span style="color: #008080;">310</span>         }<br><span style="color: #008080;">311</span>     }<br><span style="color: #008080;">312</span> }<br><span style="color: #008080;">313</span> <span style="color: #008000;">//</span><span style="color: #008000;">*****************************************************</span><span style="color: #008000;">//</span><span style="color: #008000;"><br></span><span style="color: #008080;">314</span> <span style="color: #008000;"><br></span><span style="color: #008080;">315</span> <span style="color: #008000;">//</span><span style="color: #008000;">*****************DEAR MAIN***************************</span><span style="color: #008000;">//<br></span><span style="color: #008080;">316</span> <span style="color: #0000ff;">int</span> main()<br><span style="color: #008080;">317</span> {<br><span style="color: #008080;">318</span>     RBT T=NULL;<br><span style="color: #008080;">319</span>     <span style="color: #0000ff;">int</span> i,nodenum=<span style="color: #800080;">100</span>;<br><span style="color: #008080;">320</span>     <br><span style="color: #008080;">321</span>     print(T);<br><span style="color: #008080;">322</span>     printf(<span style="color: #800000;">"</span><span style="color: #800000;">\n</span><span style="color: #800000;">"</span>);<br><span style="color: #008080;">323</span> <br><span style="color: #008080;">324</span>     printf(<span style="color: #800000;">"</span><span style="color: #800000;">\n插入操作\n</span><span style="color: #800000;">"</span>);<br><span style="color: #008080;">325</span>     <span style="color: #0000ff;">for</span>(i=<span style="color: #800080;">0</span>;i&lt;nodenum;i++)<br><span style="color: #008080;">326</span>     {<br><span style="color: #008080;">327</span>         InsertRBT(&amp;T,i);<br><span style="color: #008080;">328</span>         printf(<span style="color: #800000;">"</span><span style="color: #800000;">插入%d\n</span><span style="color: #800000;">"</span>,i);<br><span style="color: #008080;">329</span>         print(T);<br><span style="color: #008080;">330</span>         printf(<span style="color: #800000;">"</span><span style="color: #800000;">\n</span><span style="color: #800000;">"</span>);<br><span style="color: #008080;">331</span>     }<br><span style="color: #008080;">332</span> <br><span style="color: #008080;">333</span> <span style="color: #008000;">//</span><span style="color: #008000;">    print(T);</span><span style="color: #008000;"><br></span><span style="color: #008080;">334</span>     printf(<span style="color: #800000;">"</span><span style="color: #800000;">\n删除操作:\n</span><span style="color: #800000;">"</span>);<br><span style="color: #008080;">335</span> <br><span style="color: #008080;">336</span>     <span style="color: #0000ff;">for</span>(i=<span style="color: #800080;">0</span>;i&lt;nodenum;i++)<br><span style="color: #008080;">337</span>     {<br><span style="color: #008080;">338</span>         DeleteRBT(&amp;T,i);<br><span style="color: #008080;">339</span>         printf(<span style="color: #800000;">"</span><span style="color: #800000;">删除%d\n</span><span style="color: #800000;">"</span>,i);<br><span style="color: #008080;">340</span>         print(T);<br><span style="color: #008080;">341</span>         printf(<span style="color: #800000;">"</span><span style="color: #800000;">\n</span><span style="color: #800000;">"</span>);<br><span style="color: #008080;">342</span>     }<br><span style="color: #008080;">343</span> <br><span style="color: #008080;">344</span>     <span style="color: #0000ff;">return</span> <span style="color: #800080;">0</span>;<br><span style="color: #008080;">345</span> }</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./红黑树 - _Never_ - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+</div>
+<p><span style="font-size: 14px;"><br><br></span></p>
+<div style="text-align: left;"><span style="color: #ff0000;"><span style="font-size: 15px; line-height: 22px;"><strong><br></strong></span></span></div></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory">分类: <a href="http://www.cnblogs.com/fornever/category/335271.html">数据结构</a></div>
+<div id="EntryTag">标签: <a href="http://www.cnblogs.com/fornever/tag/%E7%BA%A2%E9%BB%91%E6%A0%91/">红黑树</a></div>
+<div id="blog_post_info"><div id="green_channel">
+绿色通道：
+<a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(2270692,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+<a id="green_channel_follow" onclick="c_follow();" href="javascript:void(0);">关注我</a>
+<a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a><a id="green_channel_contact" href="http://space.cnblogs.com/msg/send/_Never_" target="_blank">与我联系</a>
+<a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./红黑树 - _Never_ - 博客园_files/icon_weibo_24.png" alt=""></a>
+</div>
+<div id="author_profile">
+<div id="author_profile_info" class="author_profile_info">
+<a href="http://home.cnblogs.com/u/fornever/" target="_blank"><img src="./红黑树 - _Never_ - 博客园_files/sample_face.gif" class="author_avatar" alt=""></a>
+<div id="author_profile_detail" class="author_profile_info">
+<a href="http://home.cnblogs.com/u/fornever/">_Never_</a><br>
+<a href="http://home.cnblogs.com/u/fornever/followees">关注 - 2</a><br>
+<a href="http://home.cnblogs.com/u/fornever/followers">粉丝 - 46</a>
+</div>
+</div>
+<div class="clear"></div>
+<div id="author_profile_honor"></div>
+<div id="author_profile_follow">
+    <a href="javascript:void(0);" onclick="c_follow();return false;">+加关注</a>
+</div>
+</div>
+<div id="div_digg">										
+    <div class="diggit" onclick="votePost(2270692,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">6</span>
+    </div>
+	<div class="buryit" onclick="votePost(2270692,&#39;Bury&#39;)"> 
+		<span class="burynum" id="bury_count">0</span>
+	</div>
+	<div class="clear"></div>	
+	<div class="diggword" id="digg_tips">
+    (请您对文章做出评价)
+    </div>	
+</div>
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="http://www.cnblogs.com/fornever/archive/2011/11/15/2249492.html" class="p_n_p_prefix">« </a> 上一篇：<a href="http://www.cnblogs.com/fornever/archive/2011/11/15/2249492.html" title="发布于2011-11-15 11:20">平衡二叉树（解惑）</a><br><a href="http://www.cnblogs.com/fornever/archive/2012/03/01/2375203.html" class="p_n_p_prefix">» </a> 下一篇：<a href="http://www.cnblogs.com/fornever/archive/2012/03/01/2375203.html" title="发布于2012-03-01 11:10">POJ 1112 Team them up</a><br></div>
+</div>
+
+
+		<p class="postfoot">
+			posted on <span id="post-date">2011-12-02 08:25</span> <a href="http://www.cnblogs.com/fornever/">_Never_</a> 阅读(<span id="post_view_count">10212</span>) 评论(<span id="post_comment_count">16</span>)  <a href="http://i.cnblogs.com/EditPosts.aspx?postid=2270692" rel="nofollow">编辑</a> <a href="http://www.cnblogs.com/fornever/archive/2011/12/02/2270692.html#" onclick="AddToWz(2270692);return false;">收藏</a>
+		</p>
+	</div>
+	<script type="text/javascript">var allowComments=true,isLogined=false,cb_blogId=96823,cb_entryId=2270692,cb_blogApp=currentBlogApp,cb_blogUserGuid='37b893e5-b7d9-e011-8ee0-842b2b196315',cb_entryCreatedDate='2011/12/2 8:25:00';loadViewCount(cb_entryId);</script>
+	
+<a name="!comments"></a><div id="blog-comments-placeholder"><div id="comments_pager_top"></div>
+
+<div id="comments">
+<h3>Feedback</h3>
+	<font color="#993300" size="2"></font>
+	
+			<h4>
+				<a href="http://www.cnblogs.com/fornever/archive/2011/12/02/2270692.html#2259134" class="layer">#1楼</a><a name="2259134" id="comment_anchor_2259134"></a>
+					<span>
+						 <span class="comment_date">2011-12-02 09:42</span>
+					</span>
+				<a id="a_comment_author_2259134" href="http://www.cnblogs.com/Daview/" target="_blank">无之无</a> <a href="http://msg.cnblogs.com/msg/send/%e6%97%a0%e4%b9%8b%e6%97%a0" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</h4>
+			<p>
+				</p><div id="comment_body_2259134" class="blog_comment_body">HOHO，第一次接触红黑树，定义很有意思。想问下，目前红黑树有哪些方面的应用？</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2259134,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2259134,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_2259134_avatar" style="display:none;">http://pic.cnitblog.com/face/u589.png?id=03161504</span>
+				&nbsp;&nbsp;<span class="comment_actions"></span>
+				
+			<p></p>
+		
+			<h4>
+				<a href="http://www.cnblogs.com/fornever/archive/2011/12/02/2270692.html#2259147" class="layer">#2楼</a><a name="2259147" id="comment_anchor_2259147"></a>[<span class="louzhu">楼主</span>]
+					<span>
+						 <span class="comment_date">2011-12-02 09:54</span>
+					</span>
+				<a id="a_comment_author_2259147" href="http://www.cnblogs.com/fornever/" target="_blank">_Never_</a> <a href="http://msg.cnblogs.com/msg/send/_Never_" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</h4>
+			<p>
+				</p><div id="comment_body_2259147" class="blog_comment_body"><a href="http://www.cnblogs.com/fornever/archive/2011/12/02/2270692.html#2259134" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,2259134);">@</a>笨笨蜗牛<br>额，我只是学习一下，没有实际应用、、下边摘自维基百科：<br><a href="./红黑树 - _Never_ - 博客园_files/2011120209531811.jpg" target="_blank"><img src="./红黑树 - _Never_ - 博客园_files/2011120209531811.jpg" alt="" border="0" onload="javascript:if(this.width&gt;500) this.width=500;" width="500"></a></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2259147,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2259147,&#39;Bury&#39;,this)">反对(0)</a></div>
+				&nbsp;&nbsp;<span class="comment_actions"></span>
+				
+			<p></p>
+		
+			<h4>
+				<a href="http://www.cnblogs.com/fornever/archive/2011/12/02/2270692.html#2259650" class="layer">#3楼</a><a name="2259650" id="comment_anchor_2259650"></a>
+					<span>
+						 <span class="comment_date">2011-12-02 17:00</span>
+					</span>
+				<a id="a_comment_author_2259650" href="http://www.cnblogs.com/coser/" target="_blank">糖拌咸鱼</a> <a href="http://msg.cnblogs.com/msg/send/%e7%b3%96%e6%8b%8c%e5%92%b8%e9%b1%bc" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</h4>
+			<p>
+				</p><div id="comment_body_2259650" class="blog_comment_body"><a href="http://www.cnblogs.com/fornever/archive/2011/12/02/2270692.html#2259134" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,2259134);">@</a>笨笨蜗牛<br>红黑树应用很广，大量应用在底层数据结构中，主要用于存储和查找。平日开发很少自己去写红黑树，因为我们大部分都是使用别人封装后的接口而已，但是深入了解数据结构和算法是非常必要的。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2259650,&#39;Digg&#39;,this)">支持(1)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2259650,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_2259650_avatar" style="display:none;">http://pic.cnitblog.com/face/u146443.jpg</span>
+				&nbsp;&nbsp;<span class="comment_actions"></span>
+				
+			<p></p>
+		
+			<h4>
+				<a href="http://www.cnblogs.com/fornever/archive/2011/12/02/2270692.html#2259738" class="layer">#4楼</a><a name="2259738" id="comment_anchor_2259738"></a>[<span class="louzhu">楼主</span>]
+					<span>
+						 <span class="comment_date">2011-12-02 18:46</span>
+					</span>
+				<a id="a_comment_author_2259738" href="http://www.cnblogs.com/fornever/" target="_blank">_Never_</a> <a href="http://msg.cnblogs.com/msg/send/_Never_" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</h4>
+			<p>
+				</p><div id="comment_body_2259738" class="blog_comment_body"><a href="http://www.cnblogs.com/fornever/archive/2011/12/02/2270692.html#2259650" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,2259650);">@</a>糖拌咸鱼<br>对啊！</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2259738,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2259738,&#39;Bury&#39;,this)">反对(0)</a></div>
+				&nbsp;&nbsp;<span class="comment_actions"></span>
+				
+			<p></p>
+		
+			<h4>
+				<a href="http://www.cnblogs.com/fornever/archive/2011/12/02/2270692.html#2262570" class="layer">#5楼</a><a name="2262570" id="comment_anchor_2262570"></a>
+					<span>
+						 <span class="comment_date">2011-12-06 08:51</span>
+					</span>
+				<a id="a_comment_author_2262570" href="http://www.cnblogs.com/Daview/" target="_blank">无之无</a> <a href="http://msg.cnblogs.com/msg/send/%e6%97%a0%e4%b9%8b%e6%97%a0" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</h4>
+			<p>
+				</p><div id="comment_body_2262570" class="blog_comment_body"><a href="http://www.cnblogs.com/fornever/archive/2011/12/02/2270692.html#2259650" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,2259650);">@</a>糖拌咸鱼<br>非常感谢！</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2262570,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2262570,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_2262570_avatar" style="display:none;">http://pic.cnitblog.com/face/u589.png?id=03161504</span>
+				&nbsp;&nbsp;<span class="comment_actions"></span>
+				
+			<p></p>
+		
+			<h4>
+				<a href="http://www.cnblogs.com/fornever/archive/2011/12/02/2270692.html#2262571" class="layer">#6楼</a><a name="2262571" id="comment_anchor_2262571"></a>
+					<span>
+						 <span class="comment_date">2011-12-06 08:52</span>
+					</span>
+				<a id="a_comment_author_2262571" href="http://www.cnblogs.com/Daview/" target="_blank">无之无</a> <a href="http://msg.cnblogs.com/msg/send/%e6%97%a0%e4%b9%8b%e6%97%a0" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</h4>
+			<p>
+				</p><div id="comment_body_2262571" class="blog_comment_body"><a href="http://www.cnblogs.com/fornever/archive/2011/12/02/2270692.html#2259147" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,2259147);">@</a>_Never_<br>多谢！</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2262571,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2262571,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_2262571_avatar" style="display:none;">http://pic.cnitblog.com/face/u589.png?id=03161504</span>
+				&nbsp;&nbsp;<span class="comment_actions"></span>
+				
+			<p></p>
+		
+			<h4>
+				<a href="http://www.cnblogs.com/fornever/archive/2011/12/02/2270692.html#2282159" class="layer">#7楼</a><a name="2282159" id="comment_anchor_2282159"></a>
+					<span>
+						 <span class="comment_date">2011-12-29 12:01</span>
+					</span>
+				<a id="a_comment_author_2282159" href="http://www.cnblogs.com/repository/" target="_blank">Repository</a> <a href="http://msg.cnblogs.com/msg/send/Repository" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</h4>
+			<p>
+				</p><div id="comment_body_2282159" class="blog_comment_body"><fieldset class="comment_quote"><legend><a href="http://www.cnblogs.com/fornever/archive/2011/12/02/2270692.html#2262571" title="查看引用原文">引用</a></legend>笨笨蜗牛：<br>@_Never_<br>多谢！</fieldset><br>std里的map容器就是红黑树实现的</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2282159,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2282159,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_2282159_avatar" style="display:none;">http://pic.cnitblog.com/face/u45718.jpg?id=01001253</span>
+				&nbsp;&nbsp;<span class="comment_actions"></span>
+				
+			<p></p>
+		
+			<h4>
+				<a href="http://www.cnblogs.com/fornever/archive/2011/12/02/2270692.html#2523709" class="layer">#8楼</a><a name="2523709" id="comment_anchor_2523709"></a>
+					<span>
+						 <span class="comment_date">2012-11-04 09:45</span>
+					</span>
+				<a id="a_comment_author_2523709" href="http://www.cnblogs.com/wangziming520/" target="_blank">wangziming</a> <a href="http://msg.cnblogs.com/msg/send/wangziming" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</h4>
+			<p>
+				</p><div id="comment_body_2523709" class="blog_comment_body">其实红黑树的用途还是很广的，花时间研究是不冤枉的。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2523709,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2523709,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_2523709_avatar" style="display:none;">http://pic.cnitblog.com/face/u415996.jpg?id=05163046</span>
+				&nbsp;&nbsp;<span class="comment_actions"></span>
+				
+			<p></p>
+		
+			<h4>
+				<a href="http://www.cnblogs.com/fornever/archive/2011/12/02/2270692.html#2642674" class="layer">#9楼</a><a name="2642674" id="comment_anchor_2642674"></a>
+					<span>
+						 <span class="comment_date">2013-03-26 10:20</span>
+					</span>
+				<a id="a_comment_author_2642674" href="http://www.cnblogs.com/diffman/" target="_blank">L&amp;A小白菜</a> <a href="http://msg.cnblogs.com/msg/send/L%26amp%3bA%e5%b0%8f%e7%99%bd%e8%8f%9c" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</h4>
+			<p>
+				</p><div id="comment_body_2642674" class="blog_comment_body"><a href="http://www.cnblogs.com/fornever/archive/2011/12/02/2270692.html#2259134" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,2259134);">@</a>笨笨蜗牛<br>红黑树在Linux内核中有应用 呵呵~</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2642674,&#39;Digg&#39;,this)">支持(1)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2642674,&#39;Bury&#39;,this)">反对(0)</a></div>
+				&nbsp;&nbsp;<span class="comment_actions"></span>
+				
+			<p></p>
+		
+			<h4>
+				<a href="http://www.cnblogs.com/fornever/archive/2011/12/02/2270692.html#2724756" class="layer">#10楼</a><a name="2724756" id="comment_anchor_2724756"></a>
+					<span>
+						 <span class="comment_date">2013-07-11 10:11</span>
+					</span>
+				<a id="a_comment_author_2724756" href="http://home.cnblogs.com/u/391263/" target="_blank">心念如一</a> <a href="http://msg.cnblogs.com/msg/send/%e5%bf%83%e5%bf%b5%e5%a6%82%e4%b8%80" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</h4>
+			<p>
+				</p><div id="comment_body_2724756" class="blog_comment_body">很不错的文章！</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2724756,&#39;Digg&#39;,this)">支持(1)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2724756,&#39;Bury&#39;,this)">反对(0)</a></div>
+				&nbsp;&nbsp;<span class="comment_actions"></span>
+				
+			<p></p>
+		
+			<h4>
+				<a href="http://www.cnblogs.com/fornever/archive/2011/12/02/2270692.html#2995179" class="layer">#11楼</a><a name="2995179" id="comment_anchor_2995179"></a>
+					<span>
+						 <span class="comment_date">2014-07-26 20:14</span>
+					</span>
+				<a id="a_comment_author_2995179" href="http://www.cnblogs.com/ljygoodgoodstudydaydayup/" target="_blank">合唱团abc</a> <a href="http://msg.cnblogs.com/msg/send/%e5%90%88%e5%94%b1%e5%9b%a2abc" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</h4>
+			<p>
+				</p><div id="comment_body_2995179" class="blog_comment_body">stl中的map，set都是使用红黑树的</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2995179,&#39;Digg&#39;,this)">支持(1)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2995179,&#39;Bury&#39;,this)">反对(0)</a></div>
+				&nbsp;&nbsp;<span class="comment_actions"></span>
+				
+			<p></p>
+		
+			<h4>
+				<a href="http://www.cnblogs.com/fornever/archive/2011/12/02/2270692.html#2998191" class="layer">#12楼</a><a name="2998191" id="comment_anchor_2998191"></a>
+					<span>
+						 <span class="comment_date">2014-07-31 16:09</span>
+					</span>
+				<a id="a_comment_author_2998191" href="http://www.cnblogs.com/ChrisLi/" target="_blank">泡泡熊</a> <a href="http://msg.cnblogs.com/msg/send/%e6%b3%a1%e6%b3%a1%e7%86%8a" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</h4>
+			<p>
+				</p><div id="comment_body_2998191" class="blog_comment_body">楼主，请问 插入操作的情形4，括号里面的部分，是不是表述的有偏差？<br>既然是同向，不应该是 P为G的左孩子，N为P的左孩子 或者 P为G的右孩子，N为P的右孩子吗？</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2998191,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2998191,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_2998191_avatar" style="display:none;">http://pic.cnitblog.com/face/335296/20141229135331.png</span>
+				&nbsp;&nbsp;<span class="comment_actions"></span>
+				
+			<p></p>
+		
+			<h4>
+				<a href="http://www.cnblogs.com/fornever/archive/2011/12/02/2270692.html#3055006" class="layer">#13楼</a><a name="3055006" id="comment_anchor_3055006"></a>
+					<span>
+						 <span class="comment_date">2014-10-31 14:34</span>
+					</span>
+				<a id="a_comment_author_3055006" href="http://home.cnblogs.com/u/647272/" target="_blank">ggq89</a> <a href="http://msg.cnblogs.com/msg/send/ggq89" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</h4>
+			<p>
+				</p><div id="comment_body_3055006" class="blog_comment_body">LZ，你好，我不明白：替代点N的至少有一个子节点为NULL，这是为什么？</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3055006,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3055006,&#39;Bury&#39;,this)">反对(0)</a></div>
+				&nbsp;&nbsp;<span class="comment_actions"></span>
+				
+			<p></p>
+		
+			<h4>
+				<a href="http://www.cnblogs.com/fornever/archive/2011/12/02/2270692.html#3055026" class="layer">#14楼</a><a name="3055026" id="comment_anchor_3055026"></a>
+					<span>
+						 <span class="comment_date">2014-10-31 14:51</span>
+					</span>
+				<a id="a_comment_author_3055026" href="http://home.cnblogs.com/u/647272/" target="_blank">ggq89</a> <a href="http://msg.cnblogs.com/msg/send/ggq89" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</h4>
+			<p>
+				</p><div id="comment_body_3055026" class="blog_comment_body">哦，我明白了，替代点N一定是被删除点的直接前驱或者直接后继。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3055026,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3055026,&#39;Bury&#39;,this)">反对(0)</a></div>
+				&nbsp;&nbsp;<span class="comment_actions"></span>
+				
+			<p></p>
+		
+			<h4>
+				<a href="http://www.cnblogs.com/fornever/archive/2011/12/02/2270692.html#3055069" class="layer">#15楼</a><a name="3055069" id="comment_anchor_3055069"></a>
+					<span>
+						 <span class="comment_date">2014-10-31 15:39</span>
+					</span>
+				<a id="a_comment_author_3055069" href="http://home.cnblogs.com/u/647272/" target="_blank">ggq89</a> <a href="http://msg.cnblogs.com/msg/send/ggq89" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</h4>
+			<p>
+				</p><div id="comment_body_3055069" class="blog_comment_body">感觉我删除还是没看清楚，替代点N既然也要删除，怎么图中还有？</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3055069,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3055069,&#39;Bury&#39;,this)">反对(0)</a></div>
+				&nbsp;&nbsp;<span class="comment_actions"></span>
+				
+			<p></p>
+		
+			<h4>
+				<a href="http://www.cnblogs.com/fornever/archive/2011/12/02/2270692.html#3068003" class="layer">#16楼</a><a name="3068003" id="comment_anchor_3068003"></a><span id="comment-maxId" style="display:none;">3068003</span><span id="comment-maxDate" style="display:none;">2014/11/20 11:40:48</span>
+					<span>
+						 <span class="comment_date">2014-11-20 11:40</span>
+					</span>
+				<a id="a_comment_author_3068003" href="http://home.cnblogs.com/u/663501/" target="_blank">linkua</a> <a href="http://msg.cnblogs.com/msg/send/linkua" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</h4>
+			<p>
+				</p><div id="comment_body_3068003" class="blog_comment_body">楼主，S是sibling的缩写，中文解析为兄弟姐妹</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3068003,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3068003,&#39;Bury&#39;,this)">反对(0)</a></div>
+				&nbsp;&nbsp;<span class="comment_actions"></span>
+				
+			<p></p>
+		
+<br>
+</div><div id="comments_pager_bottom"></div></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" id="lnk_RefreshComments" onclick="return RefreshCommentList();">刷新评论</a><a href="http://www.cnblogs.com/fornever/archive/2011/12/02/2270692.html#" onclick="return RefreshPage();">刷新页面</a><a href="http://www.cnblogs.com/fornever/archive/2011/12/02/2270692.html#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="site_nav_under"><a href="http://www.ucancode.com/index.htm" target="_blank">【推荐】50万行VC++源码: 大型组态工控、电力仿真CAD与GIS源码库</a><br><a href="http://www.rongcloud.cn/promotion" target="_blank">融云，免费为你的App加入IM功能——让你的App“聊”起来！！</a><br></div>
+<div id="opt_under_post"></div>
+<script type="text/javascript">
+    var enableGoogleAd = canShowAdsense(); var googletag = googletag || {}; googletag.cmd = googletag.cmd || [];
+    fixPostBodyFormat();
+</script>
+<div id="ad_under_post_holder">
+<script type="text/javascript">
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+    (function () {
+        if (enableGoogleAd) {
+            var gads = document.createElement('script');
+            gads.async = true;
+            gads.type = 'text/javascript';
+            var useSSL = 'https:' == document.location.protocol;
+            gads.src = (useSSL ? 'https:' : 'http:') + '//www.googletagservices.com/tag/js/gpt.js';
+            var node = document.getElementsByTagName('script')[0];
+            node.parentNode.insertBefore(gads, node);
+        }
+    })();
+</script>
+<script type="text/javascript">
+    try {
+        if (enableGoogleAd) {
+            googletag.cmd.push(function () {
+                googletag.defineSlot('/1090369/cnblogs_blogpost_C1_sitehome', [300, 250], 'div-gpt-ad-1346480159711-0').addService(googletag.pubads());
+                googletag.defineSlot('/1090369/cnblogs_blogpost_C2', [468, 60], 'div-gpt-ad-1410860226396-0').addService(googletag.pubads());
+                googletag.pubads().enableSingleRequest();
+                googletag.enableServices();
+            });
+        };
+    } catch (e) { }
+</script>
+<div id="google_ad_c1" class="c_ad_block">
+    <div id="div-gpt-ad-1346480159711-0" style="width:300px; height:250px;">
+    <script type="text/javascript">
+        try {
+            if (enableGoogleAd) {
+                googletag.cmd.push(function () { googletag.display('div-gpt-ad-1346480159711-0'); });            
+            } else {
+                $('#div-gpt-ad-1346480159711-0').hide();
+            }
+    } catch (e) { }
+    </script>
+    <div id="google_ads_iframe_/1090369/cnblogs_blogpost_C1_sitehome_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/1090369/cnblogs_blogpost_C1_sitehome_0" name="google_ads_iframe_/1090369/cnblogs_blogpost_C1_sitehome_0" width="300" height="250" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" src="javascript:"<html><body style='background:transparent'></body></html>"" style="border: 0px; vertical-align: bottom;"></iframe></div><iframe id="google_ads_iframe_/1090369/cnblogs_blogpost_C1_sitehome_0__hidden__" name="google_ads_iframe_/1090369/cnblogs_blogpost_C1_sitehome_0__hidden__" width="0" height="0" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" src="javascript:"<html><body style='background:transparent'></body></html>"" style="border: 0px; vertical-align: bottom; visibility: hidden; display: none;"></iframe></div>
+</div>
+</div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>最新IT新闻</b>:<br> ·  <a href="http://news.cnblogs.com/n/519233/" target="_blank">停产消息又来? 11英寸MBA明年或将会下架</a><br> ·  <a href="http://news.cnblogs.com/n/519232/" target="_blank">一个100年都不用更新的操作系统，这是怎么做到的？</a><br> ·  <a href="http://news.cnblogs.com/n/519231/" target="_blank">海外最新的垂直市场水平化攻略</a><br> ·  <a href="http://news.cnblogs.com/n/519230/" target="_blank">天河二号被禁购内幕：专家称美嫉妒中国超算</a><br> ·  <a href="http://news.cnblogs.com/n/519229/" target="_blank">谷歌希望凭借其QUIC协议加速互联网</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="google_ad_c2" class="c_ad_block">
+<div id="div-gpt-ad-1410860226396-0" style="width:468px; height:60px;">
+<script type="text/javascript">
+try {
+    if (enableGoogleAd) {
+        googletag.cmd.push(function () { googletag.display('div-gpt-ad-1410860226396-0'); });
+    } else {
+        $('#div-gpt-ad-1346480159711-0').hide();
+    }
+} catch (e) { }
+</script>
+<div id="google_ads_iframe_/1090369/cnblogs_blogpost_C2_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/1090369/cnblogs_blogpost_C2_0" name="google_ads_iframe_/1090369/cnblogs_blogpost_C2_0" width="468" height="60" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" src="javascript:"<html><body style='background:transparent'></body></html>"" style="border: 0px; vertical-align: bottom;"></iframe></div></div>
+</div>
+<div id="under_post_kb"><div class="itnews c_ad_block" id="kb_block"><b>最新知识库文章</b>:<br><div id="kb_recent"> ·  <a href="http://kb.cnblogs.com/page/515976/" target="_blank">好对象的7大美德</a><br> ·  <a href="http://kb.cnblogs.com/page/519141/" target="_blank">iOS应用架构谈（一）：架构设计的方法论</a><br> ·  <a href="http://kb.cnblogs.com/page/519052/" target="_blank">在团队中如何带领新手</a><br> ·  <a href="http://kb.cnblogs.com/page/518888/" target="_blank">微博背后的那些算法</a><br> ·  <a href="http://kb.cnblogs.com/page/518955/" target="_blank">谈“测试驱动的开发”</a><br></div>» <a href="http://kb.cnblogs.com/" target="_blank">更多知识库文章...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+$(function () {
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 200);
+});
+</script><script async="" type="text/javascript" src="./红黑树 - _Never_ - 博客园_files/check_359604.js"></script><iframe src="./红黑树 - _Never_ - 博客园_files/container.html" style="visibility: hidden; display: none;"></iframe>
+</div>
+
+</div>
+
+<p id="footer">
+	Powered by: 
+	<br>
+	
+	<a id="Footer1_Hyperlink3" name="Hyperlink1" href="http://www.cnblogs.com/" style="font-family:Verdana;font-size:12px;">博客园</a>
+	<br>
+	Copyright © _Never_
+</p>
+
+
+</body></html>
