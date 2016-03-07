@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>matlab frequently used commands</title>
+</head>
+
+<body>
+  <h2>functions that the argument order is (x, y) not the common order (y, x)</h2>
+  <p>1.[X, Y] = meshgrid[x, y] <br>
+      x = 3:5; y = 6:7; <br>
+      then <br>
+      X = [3 4 5; 3 4 5] <br>
+      Y = [6 6 6; 7 7 7] 
+  </p>
+  <p>2.ZI = interp2(x, y, Z, XI, YI) <br>
+      Interpolate ZI(XI, YI) using the point datas: (x, y, Z). The x and y is like 2:5. <br>
+      I usually use this form: interp2(im, X, Y, 'linear', 0); <br>
+      After using this, we can visulized it using this command: <br>
+      surf(XI, YI, ZI);
+  </p>
+  
+  <h2>functions related to figure</h2>
+  <img src="IMG_0143.JPG" width="400" height="300"/>
+  <p>the cool way to write figure related commands like the image above: <br>
+      figure(1), hold off, plot(x, y, 'r*'), hold on, plot(x(inliers), y(inliers), 'g*')
+  </p>
+  <p>figure(1), axis([-5 5 -3 3]), axis equal</p>
+
+    <h2>keyboard control</h2>
+    <img src="keyboardcontrol.png"/>
+  
+</body>
+
+</html>
