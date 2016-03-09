@@ -27,10 +27,25 @@
   <p>figure(1), axis([-5 5 -3 3]), axis equal</p>
 
     <h2>keyboard control</h2>
-    <img src="keyboardcontrol.png"/>
+    <p><img src="keyboardcontrol.png"/></p>
 
     <h2>to make img(:,:,1) be a 2 dimentional image</h2>
-    img_r = squeeze(img(:,:,1));
+    <p>img_r = squeeze(img(:,:,1));</p>
+
+    <h2>some amazing function</h2>
+
+    <p> [THETA, PHI] = meshgrid(theta, phi); <br />
+        R = ones(size(THETA)); <br />
+        [X, Y, Z] = sph2cart(THETA, PHI, R); </p>
+
+    <p> x = [63 186 54 190 63]; <br />
+        y = [60 60 209 204 60];<br />
+        bw = poly2mask(x,y,256,256);  </p>
+
+    <p>
+        [x y] = deal(10, 15); <br />
+        [x y] = deal(10); equals to [x y] = deal(10, 10); 
+    </p>
   
 </body>
 
